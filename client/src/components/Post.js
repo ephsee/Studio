@@ -71,8 +71,8 @@ function handleSubmit(){
 
     return (
     <div>
-
-            Post - test to see if github is working help help see if this is working help
+        
+            Post
 
             <form>
                 <input onChange={handleContent} type="file" accept="image/*" name="file"></input>

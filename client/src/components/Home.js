@@ -1,4 +1,4 @@
-import Post from './Post'
+import UserPage from './UserPage'
 
 function Home() {
 
@@ -6,10 +6,10 @@ function Home() {
 
     <div>Home
 
-        <Post />
+        <UserPage />
 
     </div>
-    
+
   )
 }
 
