@@ -1,11 +1,11 @@
 class PostSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :content, :featured_image
+  attributes :id, :content, :upload
 
-  def featured_image
-    if object.featured_image.attached?
+  def upload
+    if object.upload.attached?
       {
-        url: rails_blob_url(object.featured_image)
+        url: rails_blob_url(object.upload)
       }
     end
   end

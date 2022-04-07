@@ -1,15 +1,18 @@
 class PostsController < ApplicationController
 
     def index
-        @posts = Post.all
-        render json: @posts
+        posts = Post.all
+        render json: posts
+        # Gadget.all.order(id: :ASC)
     end
+
     def create
-        @Post = Post.create(post_params)
+        post = Post.create(post_params)
     end
+
     private
     def post_params
-        params.permit(:title, :body, :featured_image)
+        params.permit(:user_id, :content, :upload)
     end
 
 end

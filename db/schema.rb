@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_172016) do
+ActiveRecord::Schema.define(version: 2022_04_07_214950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,70 +43,47 @@ ActiveRecord::Schema.define(version: 2022_04_07_172016) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "allies", force: :cascade do |t|
-    t.string "name"
-    t.string "alter_ego"
-    t.string "city"
-    t.string "image"
-    t.bigint "hero_id"
-    t.bigint "location_id"
+  create_table "comments", force: :cascade do |t|
+    t.string "comment"
+    t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["hero_id"], name: "index_allies_on_hero_id"
-    t.index ["location_id"], name: "index_allies_on_location_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
-  create_table "gadgets", force: :cascade do |t|
-    t.string "item_name"
-    t.integer "quantity"
-    t.string "image"
-    t.bigint "hero_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["hero_id"], name: "index_gadgets_on_hero_id"
-  end
-
-  create_table "heros", force: :cascade do |t|
-    t.string "name"
-    t.string "alter_ego"
-    t.string "base"
-    t.string "image"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.string "name"
-    t.string "image"
+  create_table "disciplines", force: :cascade do |t|
+    t.string "category"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|
     t.string "content"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "villains", force: :cascade do |t|
-    t.string "name"
-    t.string "alter_ego"
-    t.boolean "at_large"
-    t.integer "most_wanted"
-    t.string "notes"
-    t.string "image"
-    t.bigint "hero_id", null: false
-    t.bigint "location_id", null: false
+  create_table "users", force: :cascade do |t|
+    t.string "full_name"
+    t.string "username"
+    t.string "password"
+    t.string "bio"
+    t.string "email"
+    t.bigint "discipline_id", null: false
+    t.string "pic"
+    t.string "link1"
+    t.string "link2"
+    t.string "link3"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["hero_id"], name: "index_villains_on_hero_id"
-    t.index ["location_id"], name: "index_villains_on_location_id"
+    t.index ["discipline_id"], name: "index_users_on_discipline_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "gadgets", "heros"
-  add_foreign_key "villains", "heros"
-  add_foreign_key "villains", "locations"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "users", "disciplines"
 end

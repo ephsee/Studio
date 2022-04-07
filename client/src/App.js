@@ -33,9 +33,9 @@ function handleSubmit(){
     // e.PreventDefault()
 
     const formData = new FormData()
-    // formData.append('user_id', 1)
     formData.append('content', "something brand new upload")
-    formData.append('featured_image', content)
+    formData.append('upload', content)
+    formData.append('user_id', 1)
 
     // const newPost = {
     //     upload: content,
