@@ -72,7 +72,7 @@ function handleSubmit(){
     return (
     <div>
 
-            Post
+            Post - test to see if github is working
 
             <form>
                 <input onChange={handleContent} type="file" accept="image/*" name="file"></input>
