@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       
       t.string :full_name
       t.string :username
-      t.string :password
+      t.string :password_digest
       t.string :bio
       t.string :email
       t.belongs_to :discipline, null: false, foreign_key: true

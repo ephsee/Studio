@@ -1,7 +1,10 @@
 // import logo from './logo.svg';
 import './App.css';
 // import {useEffect, useState} from 'react'
+import {Switch, Route, Redirect} from 'react-router-dom'
 import Home from './components/Home'
+import Landing from './components/Landing'
+import UserPage from './components/UserPage'
 
 function App() {
 
@@ -67,17 +70,61 @@ function App() {
 
 
   return (
-    <div className="App App-header">
 
-            <Home/>
+    <div>
+        <div>
 
-            {/* hello!!!
+          <div>
+            
 
-            <form>
-                <input onChange={handleContent} type="file" accept="image/*" name="file"></input>
-                <input onClick={handleSubmit} type="submit" name="Submit"></input>
-            </form> */}
-      
+            <main>
+            <Switch>
+              <Route exact path="/profile">
+                <UserPage/>
+              </Route>
+              <Route path="/feed">
+                <Home/>
+              </Route>
+              <Route path="/art">
+                {/* <Art /> */}
+              </Route>
+              <Route path="/music">
+                {/* <Music/> */}
+              </Route>
+              <Route path="/blog">
+                {/* <Blog /> */}
+              </Route>
+              <Route path="/video">
+                {/* <Video /> */}
+              </Route>
+
+              <Route exact path="/">
+                <Landing/>
+              </Route>
+
+            </Switch>
+            </main>
+
+          </div>
+          
+        
+      </div>
+
+
+
+      {/* <div className="App App-header"> */}
+
+              {/* <Home/> */}
+
+              {/* hello!!!
+
+              <form>
+                  <input onChange={handleContent} type="file" accept="image/*" name="file"></input>
+                  <input onClick={handleSubmit} type="submit" name="Submit"></input>
+              </form> */}
+        
+      {/* </div> */}
+
     </div>
   );
 }
