@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 
-function Login({login}) {
+function Login({setAuthUser}) {
 
     const [username, setUsername] = useState("")   
     const [password, setPassword] = useState("")
@@ -28,8 +28,14 @@ function Login({login}) {
         body: JSON.stringify(user)
         })
         .then(r => r.json())
-        .then(login)
+        .then(setAuthUser)
     }
+
+        useEffect(()=>{
+        fetch("/authorized_user")
+        .then(r => r.json())
+        .then(setAuthUser)
+    }, [])
 
   return (
 

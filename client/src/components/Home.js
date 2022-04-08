@@ -1,11 +1,12 @@
 import {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom'
-// import UserPage from './UserPage'
+import {Switch, Route, Redirect} from 'react-router-dom'
+import Create from './Create'
 import Login from './Login'
 
-function Home() {
+function Home({authUser, setAuthUser, logOut}) {
 
-  const [showUser, setShowUser] = useState([])
+  // const [showUser, setShowUser] = useState([])
   const [posts, setPosts] = useState([])
 
   // useEffect(()=>{
@@ -20,14 +21,15 @@ function Home() {
     .then(setPosts)
   }, [])
 
-  function logOut() {
+  // function logOut() {
 
-    fetch("/logout", {
-    method: 'DELETE'})
-    .then(r=>r.json())
-    .then(setShowUser)
+  //   fetch("/logout", {
+  //   method: 'DELETE'})
+  //   .then(r=>r.json())
+  //   .then({setAuthUser})
+  //   // document.location.reload(true)
 
-  }
+  // }
 
   console.log(posts)
 
@@ -70,12 +72,14 @@ function Home() {
             <NavLink
                 // className="links linksLOGOUT"
                 to="/"
-                onClick={logOut}
+                onClick={(e) => logOut(e)}
                 >
                 LOGOUT
             </NavLink>
 
-            <Login login={setShowUser}/>
+            <Login setAuthUser={setAuthUser}/>
+
+            <Create />
 
           </div>
 

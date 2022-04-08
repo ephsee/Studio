@@ -1,12 +1,35 @@
 // import logo from './logo.svg';
 import './App.css';
-// import {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
 import Home from './components/Home'
 import Landing from './components/Landing'
 import UserPage from './components/UserPage'
+import Art from './components/Art'
+import Music from './components/Music'
+import Blog from './components/Blog'
+import Video from './components/Video'
 
 function App() {
+
+  const [authUser, setAuthUser] = useState([])
+
+  function logOut() {
+
+    fetch("/logout", {
+    method: 'DELETE'})
+    .then(r=>r.json())
+    .then({setAuthUser})
+    // document.location.reload(true)
+
+  }
+
+  // useEffect(()=>{
+  //     fetch("/authorized_user")
+  //     .then(r => r.json())
+  //     .then(setAuthUser)
+  // }, [])
+
 
   //   useEffect(()=>{
   //     fetch('/posts')
@@ -80,22 +103,22 @@ function App() {
             <main>
             <Switch>
               <Route exact path="/profile">
-                <UserPage/>
+                <UserPage authUser={authUser} setAuthUser={setAuthUser} logOut={logOut}/>
               </Route>
               <Route path="/feed">
-                <Home/>
+                <Home authUser={authUser} setAuthUser={setAuthUser} logOut={logOut}/>
               </Route>
               <Route path="/art">
-                {/* <Art /> */}
+                <Art />
               </Route>
               <Route path="/music">
-                {/* <Music/> */}
+                <Music/>
               </Route>
               <Route path="/blog">
-                {/* <Blog /> */}
+                <Blog />
               </Route>
               <Route path="/video">
-                {/* <Video /> */}
+                <Video />
               </Route>
 
               <Route exact path="/">

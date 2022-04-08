@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
     def logout
         session.delete :active_user
-        render json: {}, status: :gone
+        render json: {message: "User Logged Out"}, status: :gone
     end
 
 end

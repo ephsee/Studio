@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   resources :comments
   resources :disciplines
+  # :except => [:new, :create, :edit, :update, :show, :destroy]
+  # resources :users, :except => [:show]
   resources :users
   resources :posts
 
