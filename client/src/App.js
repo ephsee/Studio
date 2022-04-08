@@ -98,7 +98,6 @@ function App() {
         <div>
 
           <div>
-            
 
             <main>
             <Switch>
@@ -129,11 +128,8 @@ function App() {
             </main>
 
           </div>
-          
         
       </div>
-
-
 
       {/* <div className="App App-header"> */}
 

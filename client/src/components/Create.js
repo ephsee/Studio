@@ -21,7 +21,7 @@ function Create({login}) {
         console.log(e.target.value)
     }
 
-    function submitCreate(){
+    function submitCreate(e){
 
         const user = {
             username: username,

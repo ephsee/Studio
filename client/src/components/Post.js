@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 
-function Post() {
+function Post({authUser}) {
 
 useEffect(()=>{
     fetch('/posts')
@@ -14,6 +14,8 @@ const [text, setText] = useState("")
 
 console.log(posts)
 console.log(content)
+
+console.log(authUser.discipline_id)
 
 // const showPosts = posts.map( p => <div key={p.id}>{p.info}</div>)
 
@@ -39,7 +41,7 @@ function handleSubmit(){
     const formData = new FormData()
     formData.append('content', text)
     formData.append('upload', content)
-    formData.append('user_id', 1)
+    formData.append('user_id', authUser.id)
 
     // const newPost = {
     //     upload: content,
@@ -65,7 +67,7 @@ function handleSubmit(){
         body: formData
         })
         .then(r => r.json())
-        .then(console.log)   
+        .then(setPosts)   
     }
 
 

@@ -11,6 +11,8 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
-    "react-router-dom": "^5.3.0"
+    "react-audio-player": "^0.17.0",
+    "react-router-dom": "^5.3.0",
+    "video-react": "^0.15.0"
   }
 }

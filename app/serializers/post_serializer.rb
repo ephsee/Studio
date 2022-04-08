@@ -4,12 +4,16 @@ class PostSerializer < ActiveModel::Serializer
   belongs_to :user
   has_many :comments
 
+  # def upload
+  #   if object.upload.attached?
+  #     {
+  #       url: rails_blob_url(object.upload)
+  #     }
+  #   end
+  # end
+
   def upload
-    if object.upload.attached?
-      {
-        url: rails_blob_url(object.upload)
-      }
-    end
+    rails_blob_path(object.upload, only_path: true) if object.upload.attached?
   end
   
 end

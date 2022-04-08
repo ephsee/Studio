@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom'
+import ReactAudioPlayer from 'react-audio-player';
 
 function Music() {
 
@@ -13,9 +14,15 @@ function Music() {
 
       console.log(posts)
 
-      const showMusic = posts.filter( p => p.user.discipline_id === 3).map( a => <div key={a.id}>{a.content}</div>)
+      // <ReactAudioPlayer src={a.upload} />
 
-      console.log(showMusic)
+      // <audio controls src={a.upload}>"Your browser does not support the<code>audio</code> element.</audio>
+
+      const showPost = posts.filter( p => p.user.discipline_id === 3).map( a => <div key={a.id}><p>{a.content}</p><audio controls src={a.upload}>Your browser does not support the<code>audio</code> element.</audio></div>).reverse();
+
+      // const showMusic = posts.filter( p => p.user.discipline_id === 3).map( a => <div key={a.id}>{a.content} <ReactAudioPlayer src={a.upload} /> </div>)
+
+      // console.log(showMusic)
 
 
   return (
@@ -29,7 +36,7 @@ function Music() {
         
         Music
 
-        {/* {showMusic} */}
+        {showPost}
 
     </div>
   )

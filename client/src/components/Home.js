@@ -32,12 +32,15 @@ function Home({authUser, setAuthUser, logOut}) {
   // }
 
   console.log(posts)
+  console.log(authUser)
 
-  const showPosts = posts.map(p => <div key={p.id}>{p.content}</div>)
+  // {error: 'No Active Users'}
+
+  const showPosts = posts.map(p => <div key={p.id}>{p.content}</div>).reverse()
 
   return (
 
-    <div>Home
+    <div>StudioHome
 
           <div>
 

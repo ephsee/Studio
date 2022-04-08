@@ -7,9 +7,17 @@ class UsersController < ApplicationController
     end
 
     def create
+        # user = User.create!(user_params) do |u|
+            # u.password = User.find(params[:password])
         user = User.create!(user_params)
         render json: user, status: :created
+        # end
     end
+
+    #     User.find_or_create_by(email: "user@mail.com", first_name: "Stan", last_name: "Smith") do |user|
+    #     user.password = "password"
+    #     user.confirmed_at = Time.now
+    #   end
 
     def show
         # user = User.find(params[:id])

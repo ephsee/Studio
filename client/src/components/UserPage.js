@@ -22,22 +22,25 @@ function UserPage({authUser, logOut}) {
 
   // }
 
-  console.log(authUser)
+  console.log(authUser.discipline_id)
 
   return (
-    <div>UserPage
-
-          <div>
-              <h2>{authUser.full_name}</h2>
-              <p>{authUser.bio}</p>
-              <p>{authUser.email}</p> 
-          </div>
-
+    <div>
           <NavLink
             // className="links"
             to="/feed">
             Studio
           </NavLink>
+
+          UserPage
+
+          <div>
+              <h1>{authUser.username}</h1>
+              <h2>{authUser.full_name}</h2>
+              <p>{authUser.bio}</p>
+              <p>{authUser.email}</p> 
+          </div>
+
 
           {/* <NavLink
             // className="links linksLOGOUT"
@@ -47,7 +50,7 @@ function UserPage({authUser, logOut}) {
             LOGOUT
           </NavLink> */}
 
-        <Post />
+        <Post authUser={authUser}/>
     </div>
   )
 }
