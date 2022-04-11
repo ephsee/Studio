@@ -2,17 +2,19 @@ import {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom'
 import { Player } from 'video-react';
 
-function Video() {
+function Video({posts}) {
 
-    const [posts, setPosts] = useState([])
+    // const [posts, setPosts] = useState([])
 
-    useEffect(()=> {
-        fetch('./posts')
-        .then(r=>r.json())
-        .then(setPosts)
-      }, [])
+    //   useEffect(()=> {
+    //     fetch('./posts')
+    //     .then(r=>r.json())
+    //     .then(setPosts)
+    //   }, [])
 
-      console.log(posts)
+    //   console.log(posts)
+
+      // fluid={false} width={480} height={272}
 
       // <div style="height:50px; width:100px">
       //     <Player
@@ -33,7 +35,7 @@ function Video() {
 
       
 
-      const showPost = posts.filter( p => p.user.discipline_id === 2).map( a => <div key={a.id}><p>{a.content}</p><Player><source src={a.upload}/></Player></div>).reverse();
+      const showPost = posts.filter( p => p.user.discipline_id === 2).map( a => <div key={a.id}><p>{a.content}</p><Player fluid={false} width={480} height={272} src={a.upload}></Player></div>).reverse();
 
       // const showVideo = posts.filter( p => p.user.discipline_id === 2).map( a => <div key={a.id}>{a.content}</div>)
 

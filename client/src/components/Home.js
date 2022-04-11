@@ -4,22 +4,36 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 import Create from './Create'
 import Login from './Login'
 
-function Home({authUser, setAuthUser, logOut}) {
+function Home({posts, authUser, setAuthUser}) {
 
+  // const [posts, setPosts] = useState([])
   // const [showUser, setShowUser] = useState([])
-  const [posts, setPosts] = useState([])
+  // const [authUser, setAuthUser] = useState([])
 
   // useEffect(()=>{
   //     fetch("/authorized_user")
   //     .then(r => r.json())
-  //     .then(setShowUser)
+  //     .then(setAuthUser)
   // }, [])
 
-  useEffect(()=> {
-    fetch('./posts')
+  // useEffect(()=> {
+  //   fetch('./posts')
+  //   .then(r=>r.json())
+  //   .then(setPosts)
+  // }, [])
+
+
+  // const [posts, setPosts] = useState([])
+
+  function logOut() {
+
+    fetch("/logout", {
+    method: 'DELETE'})
     .then(r=>r.json())
-    .then(setPosts)
-  }, [])
+    .then(setAuthUser)
+    // document.location.reload(true)
+
+  }
 
   // function logOut() {
 
@@ -60,7 +74,8 @@ function Home({authUser, setAuthUser, logOut}) {
                 // className="links"
                 to="/video">
                 VIDEO
-            </NavLink><NavLink
+            </NavLink>
+            <NavLink
                 // className="links"
                 to="/blog">
                 BLOG

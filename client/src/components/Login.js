@@ -15,7 +15,8 @@ function Login({setAuthUser}) {
         console.log(e.target.value)        
     }
 
-    function submitLogin(){
+    function submitLogin(e){
+        // e.preventDefault()
 
         const user = {
             username: username,
@@ -31,11 +32,11 @@ function Login({setAuthUser}) {
         .then(setAuthUser)
     }
 
-        useEffect(()=>{
-        fetch("/authorized_user")
-        .then(r => r.json())
-        .then(setAuthUser)
-    }, [])
+    //     useEffect(()=>{
+    //     fetch("/authorized_user")
+    //     .then(r => r.json())
+    //     .then(setAuthUser)
+    // }, [])
 
   return (
 

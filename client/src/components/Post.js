@@ -1,21 +1,21 @@
 import {useEffect, useState} from 'react'
 
-function Post({authUser}) {
+function Post({authUser, setPosts}) {
 
-useEffect(()=>{
-    fetch('/posts')
-    .then(r=>r.json())
-    .then(setPosts)
-}, [])
+// useEffect(()=>{
+//     fetch('/posts')
+//     .then(r=>r.json())
+//     .then(setPosts)
+// }, [])
 
 const [content, setContent] = useState("")
-const [posts, setPosts] = useState([])
 const [text, setText] = useState("")
+// const [posts, setPosts] = useState([])
 
-console.log(posts)
+// console.log(posts)
 console.log(content)
 
-console.log(authUser.discipline_id)
+// console.log(authUser.discipline_id)
 
 // const showPosts = posts.map( p => <div key={p.id}>{p.info}</div>)
 

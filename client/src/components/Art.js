@@ -1,15 +1,15 @@
 import {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom'
 
-function Art() {
+function Art({posts}) {
 
-    const [posts, setPosts] = useState([])
+    // const [posts, setPosts] = useState([])
 
-    useEffect(()=> {
-        fetch('./posts')
-        .then(r=>r.json())
-        .then(setPosts)
-      }, [])
+    //   useEffect(()=> {
+    //     fetch('./posts')
+    //     .then(r=>r.json())
+    //     .then(setPosts)
+    //   }, [])
 
       
       // var users = [

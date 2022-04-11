@@ -2,7 +2,7 @@ import {NavLink} from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import Post from './Post'
 
-function UserPage({authUser, logOut}) {
+function UserPage({authUser, posts, setPosts}) {
 
   // const [showUser, setShowUser] = useState([])
 
@@ -11,6 +11,16 @@ function UserPage({authUser, logOut}) {
   //   .then(r => r.json())
   //   .then(setShowUser)
   // }, [])
+
+  // const [posts, setPosts] = useState([])
+
+  //   useEffect(()=> {
+  //       fetch('./posts')
+  //       .then(r=>r.json())
+  //       .then(setPosts)
+  //     }, [])
+
+  //     console.log(posts)
 
   // function logOut() {
 
@@ -22,7 +32,14 @@ function UserPage({authUser, logOut}) {
 
   // }
 
-  console.log(authUser.discipline_id)
+  console.log(posts)
+  console.log(authUser)
+
+  // console.log(authUser.discipline_id)
+
+  const userPosts = posts.filter( p => p.user_id == authUser.id).map( up => <div key={up.id}><p>{up.content}</p></div>).reverse()
+  
+  // console.log(userPosts)
 
   return (
     <div>
@@ -50,7 +67,11 @@ function UserPage({authUser, logOut}) {
             LOGOUT
           </NavLink> */}
 
-        <Post authUser={authUser}/>
+        <Post authUser={authUser} setPosts={setPosts}/>
+
+            <div>
+            {userPosts}
+            </div>
     </div>
   )
 }

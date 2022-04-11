@@ -45,7 +45,14 @@ function Create({login}) {
             <form>
                 <input onChange={handleUsername} type="text" name="username" placeholder="username"></input>
                 <input onChange={handlePassword}type="password" name="password" placeholder="password"></input>
-                <input onChange={handleDiscipline}type="number" name="dicipline_id" placeholder="dicipline_id"></input>
+                {/* <input onChange={handleDiscipline}type="number" name="dicipline_id" placeholder="dicipline_id"></input> */}
+                <select onChange={handleDiscipline}>
+                    <option>select discipline</option>
+                    <option value="1">Art</option>
+                    <option value="2">Video</option>
+                    <option value="3">Music</option>
+                    <option value="4">Blog</option>
+                </select>
                 <input onClick={submitCreate} type="submit" name="Submit"></input>
             </form>
 

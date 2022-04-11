@@ -2,12 +2,13 @@ import {NavLink} from 'react-router-dom'
 
 function Landing() {
   return (
-    <div>Landing
+    <div>
+      <h1>STUDIO - WHERE CREATIVES CAN PROMOTE AND SUPPORT ARTISTS WORKS</h1>
 
         <NavLink
             // className="links"
             to="/feed">
-            FEED
+            WELCOME TO STUDIO
         </NavLink>
     </div>
   )

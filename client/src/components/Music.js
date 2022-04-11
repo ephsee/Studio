@@ -2,17 +2,17 @@ import {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom'
 import ReactAudioPlayer from 'react-audio-player';
 
-function Music() {
+function Music({posts}) {
 
-    const [posts, setPosts] = useState([])
+    // const [posts, setPosts] = useState([])
 
-    useEffect(()=> {
-        fetch('./posts')
-        .then(r=>r.json())
-        .then(setPosts)
-      }, [])
+    // useEffect(()=> {
+    //     fetch('./posts')
+    //     .then(r=>r.json())
+    //     .then(setPosts)
+    //   }, [])
 
-      console.log(posts)
+    //   console.log(posts)
 
       // <ReactAudioPlayer src={a.upload} />
 

@@ -11,18 +11,38 @@ import Blog from './components/Blog'
 import Video from './components/Video'
 
 function App() {
+  
+  // const [authUser, setAuthUser] = useState([])
+  const [posts, setPosts] = useState([])
 
   const [authUser, setAuthUser] = useState([])
 
-  function logOut() {
+  useEffect(()=>{
+      fetch("/authorized_user")
+      .then(r => r.json())
+      .then(setAuthUser)
+      // document.location.reload(true)
+  }, [])
 
-    fetch("/logout", {
-    method: 'DELETE'})
-    .then(r=>r.json())
-    .then({setAuthUser})
-    // document.location.reload(true)
+  // function logOut() {
 
-  }
+  //   fetch("/logout", {
+  //   method: 'DELETE'})
+  //   .then(r=>r.json())
+  //   .then(setAuthUser)
+  //   // document.location.reload(true)
+
+  // }
+
+  // function logOut() {
+
+  //   fetch("/logout", {
+  //   method: 'DELETE'})
+  //   .then(r=>r.json())
+  //   .then({setAuthUser})
+  //   // document.location.reload(true)
+
+  // }
 
   // useEffect(()=>{
   //     fetch("/authorized_user")
@@ -31,14 +51,13 @@ function App() {
   // }, [])
 
 
-  //   useEffect(()=>{
-  //     fetch('/posts')
-  //     .then(r=>r.json())
-  //     .then(setPosts)
-  // }, [])
+    useEffect(()=>{
+      fetch('/posts')
+      .then(r=>r.json())
+      .then(setPosts)
+  }, [])
 
   // const [content, setContent] = useState("")
-  // const [posts, setPosts] = useState([])
 
   // console.log(posts)
   // console.log(content)
@@ -102,22 +121,22 @@ function App() {
             <main>
             <Switch>
               <Route exact path="/profile">
-                <UserPage authUser={authUser} setAuthUser={setAuthUser} logOut={logOut}/>
+                <UserPage posts={posts} setPosts={setPosts} authUser={authUser}/>
               </Route>
               <Route path="/feed">
-                <Home authUser={authUser} setAuthUser={setAuthUser} logOut={logOut}/>
+                <Home posts={posts} authUser={authUser} setAuthUser={setAuthUser}/>
               </Route>
               <Route path="/art">
-                <Art />
+                <Art posts={posts}/>
               </Route>
               <Route path="/music">
-                <Music/>
+                <Music posts={posts}/>
               </Route>
               <Route path="/blog">
-                <Blog />
+                <Blog posts={posts}/>
               </Route>
               <Route path="/video">
-                <Video />
+                <Video posts={posts}/>
               </Route>
 
               <Route exact path="/">
