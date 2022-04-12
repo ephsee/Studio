@@ -22,6 +22,7 @@ function Create({login}) {
     }
 
     function submitCreate(e){
+        e.preventDefault()
 
         const user = {
             username: username,
@@ -29,7 +30,7 @@ function Create({login}) {
             discipline_id: discipline
         }
 
-        fetch('./users',{
+        fetch('/users',{
         method:'POST',
         headers:{'Content-Type': 'application/json'},
         body: JSON.stringify(user)
@@ -40,7 +41,7 @@ function Create({login}) {
 
     return (
 
-        <div>Create
+        <div className="inputs">Create
 
             <form>
                 <input onChange={handleUsername} type="text" name="username" placeholder="username"></input>
@@ -53,7 +54,7 @@ function Create({login}) {
                     <option value="3">Music</option>
                     <option value="4">Blog</option>
                 </select>
-                <input onClick={submitCreate} type="submit" name="Submit"></input>
+                <input onClick={(e) => submitCreate(e)} type="submit" name="Submit"></input>
             </form>
 
         </div>

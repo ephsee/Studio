@@ -51,7 +51,7 @@ function Blog({posts}) {
     <div>
         
         <NavLink
-            // className="links"
+            className="links"
             to="/feed">
             Studio
         </NavLink>

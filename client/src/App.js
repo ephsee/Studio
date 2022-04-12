@@ -110,7 +110,6 @@ function App() {
   //       .then(console.log)   
   //     }
 
-
   return (
 
     <div>
@@ -124,19 +123,19 @@ function App() {
                 <UserPage posts={posts} setPosts={setPosts} authUser={authUser}/>
               </Route>
               <Route path="/feed">
-                <Home posts={posts} authUser={authUser} setAuthUser={setAuthUser}/>
+                <Home posts={posts} setPosts={setPosts} authUser={authUser} setAuthUser={setAuthUser}/>
               </Route>
               <Route path="/art">
-                <Art posts={posts}/>
+                <Art posts={posts} setPosts={setPosts}/>
               </Route>
               <Route path="/music">
-                <Music posts={posts}/>
+                <Music posts={posts} setPosts={setPosts}/>
               </Route>
               <Route path="/blog">
-                <Blog posts={posts}/>
+                <Blog posts={posts} setPosts={setPosts}/>
               </Route>
               <Route path="/video">
-                <Video posts={posts}/>
+                <Video posts={posts} setPosts={setPosts}/>
               </Route>
 
               <Route exact path="/">

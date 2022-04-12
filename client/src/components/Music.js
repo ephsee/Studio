@@ -29,7 +29,7 @@ function Music({posts}) {
     <div>
         
         <NavLink
-            // className="links"
+            className="links"
             to="/feed">
             Studio
         </NavLink>

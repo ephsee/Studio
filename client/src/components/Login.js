@@ -16,7 +16,7 @@ function Login({setAuthUser}) {
     }
 
     function submitLogin(e){
-        // e.preventDefault()
+        e.preventDefault()
 
         const user = {
             username: username,
@@ -40,7 +40,7 @@ function Login({setAuthUser}) {
 
   return (
 
-    <div>Login
+    <div className="inputs">Login
         <form>
             <input onChange={handleUsername} type="text" name="username" placeholder="username"></input>
             <input onChange={handlePassword}type="password" name="password" placeholder="password"></input>

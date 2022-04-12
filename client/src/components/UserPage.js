@@ -2,7 +2,7 @@ import {NavLink} from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import Post from './Post'
 
-function UserPage({authUser, posts, setPosts}) {
+function UserPage({authUser, posts, setPosts, deletePost}) {
 
   // const [showUser, setShowUser] = useState([])
 
@@ -31,20 +31,32 @@ function UserPage({authUser, posts, setPosts}) {
     // document.location.reload(true)
 
   // }
+  // const postsAfterDelete = posts.filter( p => id !== p.id)
+
+  function deletePost(id){
+    console.log(id)
+    fetch(`/posts/${id}`,{
+        method: 'DELETE'})
+    .then(r=>r.json())
+    .then(console.log())
+    // alert('user post removed')
+    const postsAfterDelete = posts.filter( p => id !== p.id)
+    setPosts(postsAfterDelete)
+}
 
   console.log(posts)
   console.log(authUser)
 
   // console.log(authUser.discipline_id)
 
-  const userPosts = posts.filter( p => p.user_id == authUser.id).map( up => <div key={up.id}><p>{up.content}</p></div>).reverse()
+  const userPosts = posts.filter( p => p.user_id == authUser.id).map( up => <div key={up.id}><p>{up.content}</p><button onClick={(e) => deletePost(up.id)}>x</button></div>).reverse()
   
   // console.log(userPosts)
 
   return (
     <div>
           <NavLink
-            // className="links"
+            className="links"
             to="/feed">
             Studio
           </NavLink>
@@ -67,7 +79,7 @@ function UserPage({authUser, posts, setPosts}) {
             LOGOUT
           </NavLink> */}
 
-        <Post authUser={authUser} setPosts={setPosts}/>
+        <Post authUser={authUser} setPosts={setPosts} posts={posts}/>
 
             <div>
             {userPosts}

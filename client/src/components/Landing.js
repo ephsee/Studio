@@ -6,7 +6,7 @@ function Landing() {
       <h1>STUDIO - WHERE CREATIVES CAN PROMOTE AND SUPPORT ARTISTS WORKS</h1>
 
         <NavLink
-            // className="links"
+            className="links"
             to="/feed">
             WELCOME TO STUDIO
         </NavLink>

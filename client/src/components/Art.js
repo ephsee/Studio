@@ -3,6 +3,18 @@ import {NavLink} from 'react-router-dom'
 
 function Art({posts}) {
 
+  const [showComments, setShowComments] = useState(false)
+  const [comment, setComment] = useState("")
+      
+  function clicker(){
+    setShowComments(!showComments)
+  }
+
+  function newComment(e){
+    setComment(e.target.value)
+    console.log(e.target.value)
+  }
+
     // const [posts, setPosts] = useState([])
 
     //   useEffect(()=> {
@@ -22,7 +34,7 @@ function Art({posts}) {
           //     for (let {user, age = "DEFAULT AGE", geo: {lat, long}} of users) {
               //         console.log(user, age, lat, long);
               //   }
-              const showPost = posts.filter( p => p.user.discipline_id === 1).map( a => <div key={a.id}><p>{a.content}</p><img width="400px" src={a.upload}/></div>).reverse();
+              const showPost = posts.filter( p => p.user.discipline_id === 1).map( a => <div key={a.id}><p>{a.content}</p><img className="posts" width="400px" src={a.upload}/></div>).reverse();
 
               console.log(showPost)
 
@@ -91,7 +103,7 @@ function Art({posts}) {
     <div>
         
         <NavLink
-            // className="links"
+            className="links"
             to="/feed">
             Studio
         </NavLink>

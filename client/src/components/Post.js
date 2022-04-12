@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 
-function Post({authUser, setPosts}) {
+function Post({authUser, posts, setPosts}) {
 
 // useEffect(()=>{
 //     fetch('/posts')
@@ -34,9 +34,8 @@ function handleText(e){
     setText(e.target.value)
 }
 
-function handleSubmit(){
-
-    // e.PreventDefault()
+function handleSubmit(e){
+    e.preventDefault()
 
     const formData = new FormData()
     formData.append('content', text)
@@ -67,19 +66,19 @@ function handleSubmit(){
         body: formData
         })
         .then(r => r.json())
-        .then(setPosts)   
+        .then(setPosts([...posts]))
     }
 
 
     return (
     <div>
-        
-            Post
-
-            <form>
-                <input onChange={handleContent} type="file" accept="image/*" name="file"></input>
-                <input onChange={handleText} type="text" name="content" placeholder="upload details"></input>
-                <input onClick={handleSubmit} type="submit" name="Submit"></input>
+            <div className="inputs">
+                <h1>create a new post</h1>
+            </div>
+            <form className="inputs">
+                <input onChange={handleContent} type="file" accept="image/*" name="file"></input><br></br>
+                <input onChange={handleText} type="text" name="content" placeholder="upload details"></input><br></br>
+                <input onClick={(e) => handleSubmit(e)} type="submit" name="Submit"></input>
             </form>
         
     </div>

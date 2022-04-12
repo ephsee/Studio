@@ -1,1 +1,35 @@
 @import '~video-react/dist/video-react.css';
+
+body {
+    color: rgb(202, 172, 172);
+    background-color: rgb(48, 39, 39);
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.inputs{
+    display:flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.links{
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+
+.posts{
+    border: 2px solid black;
+    border-radius: 10px
+}
+
+.lists{
+    list-style: none
+}
+
