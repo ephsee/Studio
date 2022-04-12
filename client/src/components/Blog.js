@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom'
+
+// import fs from 'fs'
 // import { PDFReader } from 'react-read-pdf';
 
 // const fileReader = new FileReader();
@@ -118,9 +120,53 @@ function Blog({posts}) {
 
       // const blog = new Blob()
 
+      // readFile
+      // readFileSync
+
       // const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p>{a.content}</p>{new ReadableStream(a.upload)}</div>).reverse();
       // const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p>{a.content}</p>{fileReader.readAsDataURL(a.upload)}</div>).reverse();
-      const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p>{a.content}</p><textarea id="content" cols="50" rows="20" readOnly type='text/plain' value={a.upload}></textarea></div>).reverse();
+
+      //   <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+      //   {[1, 2, 3].map((value) => (
+      //     <ListItem
+      //       key={value}
+      //       disableGutters
+      //       secondaryAction={
+      //         <IconButton>
+      //           <CommentIcon />
+      //         </IconButton>
+      //       }
+      //     >
+      //       <ListItemText primary={Line item ${value}} />
+      //     </ListItem>
+      //   ))}
+      // </List>
+
+      // npm install @mui/material @emotion/react @emotion/styled
+
+      const texts = posts.filter( p => p.user.discipline_id === 4).map( u => u.upload)
+      
+      const readFile = async (file) => {
+        // for (let url in file){
+          // file.forEach( url => {
+            await fetch(file).then(r=>r.text()).then(text => {
+              console.log(text)
+              return text
+            })
+          // })
+        // }
+      }
+
+      console.log(readFile(texts))
+
+
+
+      // <textarea id="content" cols="50" rows="20" readOnly type='text' value={readFile(a.upload)}></textarea>
+
+
+
+      const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p>{a.content}</p><p> {a.upload} </p></div>).reverse()
+
       // const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p>{a.content}</p>{text(a.upload)}</div>).reverse();
 
       // const showBlog = posts.filter( p => p.user.discipline_id === 4).map( a => <div key={a.id}>{a.content}</div>)
