@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react'
 
 function Login({setAuthUser}) {
 
+    let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+
     const [username, setUsername] = useState("")   
     const [password, setPassword] = useState("")
 
@@ -40,7 +42,7 @@ function Login({setAuthUser}) {
 
   return (
 
-    <div className="inputs">Login
+    <div style={{ color: randomColor }} className="inputs"> - Login - 
         <form>
             <input onChange={handleUsername} type="text" name="username" placeholder="username"></input>
             <input onChange={handlePassword}type="password" name="password" placeholder="password"></input>

@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react'
 
 function Create({login}) {
 
+    let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [discipline, setDiscipline] = useState("")
@@ -41,7 +43,7 @@ function Create({login}) {
 
     return (
 
-        <div className="inputs">Create
+        <div style={{ color: randomColor }} className="inputs"> - Create -
 
             <form>
                 <input onChange={handleUsername} type="text" name="username" placeholder="username"></input>

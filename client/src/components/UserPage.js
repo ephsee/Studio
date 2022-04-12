@@ -4,6 +4,8 @@ import Post from './Post'
 
 function UserPage({authUser, posts, setPosts, deletePost}) {
 
+  let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);  
+
   // const [showUser, setShowUser] = useState([])
 
   // useEffect(()=>{
@@ -47,6 +49,13 @@ function UserPage({authUser, posts, setPosts, deletePost}) {
   console.log(posts)
   console.log(authUser)
 
+  // if authUser === {error: 'No Active Users'} || {message: 'User Logged Out'} {
+  //   setProfileView(false)
+  // } else {
+  //       setProfileView(true)
+  // }
+  // }
+
   // console.log(authUser.discipline_id)
   const userPostsRender = posts.filter( p => p.user_id == authUser.id).map( up => <div key={up.id}><p>{up.content}</p><button onClick={(e) => deletePost(up.id)}>x</button></div>).reverse()
 
@@ -62,15 +71,16 @@ function UserPage({authUser, posts, setPosts, deletePost}) {
             Studio
           </NavLink>
 
-          <h1 className="inputs">User Page</h1>
-
           <div>
-              <h1>{authUser.username}</h1>
-              <h2>{authUser.full_name}</h2>
-              <p>{authUser.bio}</p>
-              <p>{authUser.email}</p> 
-          </div>
 
+                <h1 style={{ color: randomColor }} className="inputs">User Page</h1>
+
+                <div>
+                    <h1 style={{ color: 'grey'}}>{authUser.username}</h1>
+                    <h2>{authUser.full_name}</h2>
+                    <p style={{ color: 'grey'}}>{authUser.bio}</p>
+                    <p>{authUser.email}</p> 
+                </div>
 
           {/* <NavLink
             // className="links linksLOGOUT"
@@ -80,10 +90,11 @@ function UserPage({authUser, posts, setPosts, deletePost}) {
             LOGOUT
           </NavLink> */}
 
-          <Post authUser={authUser} setPosts={setPosts} posts={posts}/>
+                  <Post authUser={authUser} setPosts={setPosts} posts={posts}/>
 
-          <div>
-            {userPostsRender}
+                <div>
+                  {userPostsRender}
+                </div>
           </div>
     </div>
   )

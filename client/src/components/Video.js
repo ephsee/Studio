@@ -4,6 +4,8 @@ import { Player } from 'video-react';
 
 function Video({posts, setPosts}) {
 
+  let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+
     // const [posts, setPosts] = useState([])
 
     const [addComment, setAddComment] = useState(false)
@@ -36,6 +38,7 @@ function Video({posts, setPosts}) {
       .then(r => r.json())
       .then(console.log)
       setAddComment(false)
+      setPosts([...posts])
   }
     // onClick={(e) => postClick(p)}
 
@@ -83,7 +86,7 @@ function Video({posts, setPosts}) {
             Studio
         </NavLink>
 
-            <h1 className="inputs">Video</h1>
+            <h1 style={{ color: randomColor }} className="inputs">Video</h1>
 
             { addComment ? <div><input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input><button onClick={postComment}>post</button></div> : null }
 

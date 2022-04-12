@@ -6,6 +6,11 @@ import Login from './Login'
 
 function Home({posts, authUser, setAuthUser}) {
 
+  let randomColor1 = "#" + Math.floor(Math.random()*16777215).toString(16);
+  // let styleColor1 = "#" + randomColor1
+  // let randomColor2 = "#" + Math.floor(Math.random()*16777215).toString(16);
+  // let styleColor2= "#" + randomColor2
+
   // const [morePosts, setMorePosts] = useState([])
   // const [showUser, setShowUser] = useState([])
   // const [authUser, setAuthUser] = useState([])
@@ -82,7 +87,7 @@ function Home({posts, authUser, setAuthUser}) {
   // }, (false))
   // console.log(active)
 
-  const showPosts = posts.map(p => <div className="lists" key={p.id}><h3>{p.content}</h3><p>{p.comments.map( c => " ~ " + c.comment )}</p></div>).reverse()
+  const showPosts = posts.map(p => <div className="lists" key={p.id}><h3>{p.content}</h3><p style={{ color: 'grey'}}>{p.comments.map( c => " ~ " + c.comment )}</p></div>).reverse()
   // {showComments ? <input onChange={(e) => newComment(e)} type="text" placeholder="share a comment"></input> : null}
   // <button onClick={clicker}>comments</button>{showComments ? <li>{p.comments.map( c => c.comment)}</li> : null}
 

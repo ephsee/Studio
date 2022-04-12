@@ -3,20 +3,51 @@ import {NavLink} from 'react-router-dom'
 
 function Art({posts}) {
 
-  let randomColor1 = Math.floor(Math.random()*16777215).toString(16);
-  let styleColor1 = "#" + randomColor1
+  let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
 
   const [showComments, setShowComments] = useState(false)
-  const [comment, setComment] = useState("")
+  // const [comment, setComment] = useState("")
       
-  function clicker(){
-    setShowComments(!showComments)
+  // function clicker(){
+  //   setShowComments(!showComments)
+  // }
+
+  // function newComment(e){
+  //   setComment(e.target.value)
+  //   console.log(e.target.value)
+  // }
+
+  const [addComment, setAddComment] = useState(false)
+  const [comment, setComment] = useState("")
+  const [post_id , setPostId] = useState("")
+
+  console.log(comment)
+
+  function postClick(e){
+    setAddComment(true)
+    console.log(addComment)
+    setPostId(e.id)
+    console.log(e.id)
+    console.log(e)
   }
 
-  function newComment(e){
-    setComment(e.target.value)
-    console.log(e.target.value)
-  }
+  function postComment(e){
+
+    const newComment = {
+      post_id,
+      comment
+    }
+
+    
+    fetch('/comments',{
+      method:'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify(newComment)
+    })
+    .then(r => r.json())
+    .then(console.log)
+    setAddComment(false)
+}
 
     // const [posts, setPosts] = useState([])
 
@@ -37,7 +68,7 @@ function Art({posts}) {
           //     for (let {user, age = "DEFAULT AGE", geo: {lat, long}} of users) {
               //         console.log(user, age, lat, long);
               //   }
-              const showPost = posts.filter( p => p.user.discipline_id === 1).map( a => <div key={a.id}><p>{a.content}</p><img className="posts" width="400px" src={a.upload}/></div>).reverse();
+              const showPost = posts.filter( p => p.user.discipline_id === 1).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p>{a.content}</p><img className="posts" width="400px" src={a.upload}/></div>).reverse();
 
               console.log(showPost)
 
@@ -111,7 +142,9 @@ function Art({posts}) {
             Studio
         </NavLink>
 
-        <h1 style={{ color: styleColor1 }} className="inputs">Art</h1>
+        <h1 style={{ color: randomColor }} className="inputs">Art</h1>
+
+        { addComment ? <div><input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input><button onClick={postComment}>post</button></div> : null }
         
         {showPost}
         {/* {showMe} */}
