@@ -70,7 +70,7 @@ function Music({posts}) {
         
         <h1 style={{ color: randomColor }} className="inputs">Music</h1>
 
-        { addComment ? <div><input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input><button onClick={postComment}>post</button></div> : null }
+        { addComment ? <div className="inputs"><input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input><button onClick={postComment}>post</button></div> : null }
 
         {showPost}
 

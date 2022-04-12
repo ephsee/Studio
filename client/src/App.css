@@ -30,11 +30,21 @@ a:hover {
 }
 
 .posts{
+    display: grid;
     border: 2px solid black;
-    border-radius: 10px
+    border-radius: 10px;  
 }
 
 .lists{
     list-style: none
 }
+
+.left {
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
 

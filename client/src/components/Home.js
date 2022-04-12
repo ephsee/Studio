@@ -6,7 +6,7 @@ import Login from './Login'
 
 function Home({posts, authUser, setAuthUser}) {
 
-  let randomColor1 = "#" + Math.floor(Math.random()*16777215).toString(16);
+  let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
   // let styleColor1 = "#" + randomColor1
   // let randomColor2 = "#" + Math.floor(Math.random()*16777215).toString(16);
   // let styleColor2= "#" + randomColor2
@@ -69,7 +69,7 @@ function Home({posts, authUser, setAuthUser}) {
 
   // }
 
-  // console.log(posts.comments)
+  console.log(posts)
   // console.log(authUser)
 
   // function postClick(e){
@@ -87,7 +87,7 @@ function Home({posts, authUser, setAuthUser}) {
   // }, (false))
   // console.log(active)
 
-  const showPosts = posts.map(p => <div className="lists" key={p.id}><h3>{p.content}</h3><p style={{ color: 'grey'}}>{p.comments.map( c => " ~ " + c.comment )}</p></div>).reverse()
+  const showPosts = posts.map(p => <div className="lists" key={p.id}><p>{p.content}</p><p style={{ color: 'grey'}}>{p.comments.map( c => " ~ " + c.comment )}</p></div>).reverse()
   // {showComments ? <input onChange={(e) => newComment(e)} type="text" placeholder="share a comment"></input> : null}
   // <button onClick={clicker}>comments</button>{showComments ? <li>{p.comments.map( c => c.comment)}</li> : null}
 
@@ -98,7 +98,7 @@ function Home({posts, authUser, setAuthUser}) {
           <div>
 
             {/* <UserPage user={showUser}/> */}
-
+            <div className="left">
             <NavLink
                 className="links"
                 to="/art">
@@ -119,7 +119,9 @@ function Home({posts, authUser, setAuthUser}) {
                 to="/blog">
                 BLOG
             </NavLink>
+            </div>
             
+            <div className="right">
             <NavLink
                 className="links"
                 to="/profile">
@@ -133,15 +135,23 @@ function Home({posts, authUser, setAuthUser}) {
                 >
                 LOGOUT
             </NavLink>
+            </div>
 
+            <div className="right">
             <Login setAuthUser={setAuthUser}/>
-
             <Create />
+            </div>
+
+            <div className="inputs">
+                {/* <img src={authUser.pic} alt={authUser.username}/> */}
+                <h1 style={{color : randomColor}}>{authUser.username}</h1>
+            </div>
 
           </div>
 
+          <div>
           {showPosts}
-
+          </div>
     </div>
 
   )
