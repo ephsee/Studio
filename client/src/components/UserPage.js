@@ -48,8 +48,9 @@ function UserPage({authUser, posts, setPosts, deletePost}) {
   console.log(authUser)
 
   // console.log(authUser.discipline_id)
+  const userPostsRender = posts.filter( p => p.user_id == authUser.id).map( up => <div key={up.id}><p>{up.content}</p><button onClick={(e) => deletePost(up.id)}>x</button></div>).reverse()
 
-  const userPosts = posts.filter( p => p.user_id == authUser.id).map( up => <div key={up.id}><p>{up.content}</p><button onClick={(e) => deletePost(up.id)}>x</button></div>).reverse()
+  // const userPosts = posts.filter( p => p.user_id == authUser.id)
   
   // console.log(userPosts)
 
@@ -61,7 +62,7 @@ function UserPage({authUser, posts, setPosts, deletePost}) {
             Studio
           </NavLink>
 
-          UserPage
+          <h1 className="inputs">User Page</h1>
 
           <div>
               <h1>{authUser.username}</h1>
@@ -79,11 +80,11 @@ function UserPage({authUser, posts, setPosts, deletePost}) {
             LOGOUT
           </NavLink> */}
 
-        <Post authUser={authUser} setPosts={setPosts} posts={posts}/>
+          <Post authUser={authUser} setPosts={setPosts} posts={posts}/>
 
-            <div>
-            {userPosts}
-            </div>
+          <div>
+            {userPostsRender}
+          </div>
     </div>
   )
 }

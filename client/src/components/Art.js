@@ -3,6 +3,9 @@ import {NavLink} from 'react-router-dom'
 
 function Art({posts}) {
 
+  let randomColor1 = Math.floor(Math.random()*16777215).toString(16);
+  let styleColor1 = "#" + randomColor1
+
   const [showComments, setShowComments] = useState(false)
   const [comment, setComment] = useState("")
       
@@ -108,8 +111,8 @@ function Art({posts}) {
             Studio
         </NavLink>
 
-        Art
-
+        <h1 style={{ color: styleColor1 }} className="inputs">Art</h1>
+        
         {showPost}
         {/* {showMe} */}
 

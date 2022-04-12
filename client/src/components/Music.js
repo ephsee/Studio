@@ -34,7 +34,7 @@ function Music({posts}) {
             Studio
         </NavLink>
         
-        Music
+        <h1 className="inputs">Music</h1>
 
         {showPost}
 

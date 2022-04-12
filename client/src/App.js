@@ -120,10 +120,10 @@ function App() {
             <main>
             <Switch>
               <Route exact path="/profile">
-                <UserPage posts={posts} setPosts={setPosts} authUser={authUser}/>
+                <UserPage authUser={authUser} posts={posts} setPosts={setPosts}/>
               </Route>
               <Route path="/feed">
-                <Home posts={posts} setPosts={setPosts} authUser={authUser} setAuthUser={setAuthUser}/>
+                <Home posts={posts} authUser={authUser} setAuthUser={setAuthUser}/>
               </Route>
               <Route path="/art">
                 <Art posts={posts} setPosts={setPosts}/>

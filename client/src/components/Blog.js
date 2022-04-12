@@ -36,10 +36,34 @@ function Blog({posts}) {
       //   };
       //   reader.readAsText(e.target.files[0])
       // }
+      // const showThings = posts.filter( p => p.user.discipline_id === 4)
 
-      let reader = new FileReader();
+      // let reader = new FileReader();
+      // function renderBlogs(showThings) {
+      //   posts.forEach(post => {
+      //   const reader = new FileReader()
+      //   reader.readAsBlob(post.upload)}
+      //   )
+      // }
 
-      const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div key={a.id}><p>{a.content}</p><textarea cols="50" rows="20" readOnly value={(a.upload)}></textarea></div>).reverse();
+      // const data = new Blob([showThings[]], { type: 'text/plain' })
+      // console.log(data)
+      // console.log(renderBlogs())
+
+      // const reader = new FileReader()
+
+      //   reader.onload = event => {
+      //     const text = reader.result
+      //     document.getElementById('content').innerHTML = text
+      //   }
+
+      //   reader.onerror = (e) => {
+      //     console.error(e)
+      //   }
+
+      //   reader.readAsText(showThings[])
+
+      const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div key={a.id}><p>{a.content}</p><textarea id="content" cols="50" rows="20" readOnly type='text/plain' value={a.upload}></textarea></div>).reverse();
 
       // const showBlog = posts.filter( p => p.user.discipline_id === 4).map( a => <div key={a.id}>{a.content}</div>)
 
@@ -56,9 +80,10 @@ function Blog({posts}) {
             Studio
         </NavLink>
 
-        Blog
+        <h1 className="inputs">Blog</h1>
 
         {showPost}
+        {/* {renderBlogs} */}
 
     </div>
   )

@@ -4,13 +4,14 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 import Create from './Create'
 import Login from './Login'
 
-function Home({posts, setPosts, authUser, setAuthUser}) {
+function Home({posts, authUser, setAuthUser}) {
 
   // const [morePosts, setMorePosts] = useState([])
   // const [showUser, setShowUser] = useState([])
   // const [authUser, setAuthUser] = useState([])
 
   // const [addComment, setAddComment] = useState(false)
+  const [active, setActive] = useState(false)
 
   console.log(authUser)
   
@@ -21,11 +22,11 @@ function Home({posts, setPosts, authUser, setAuthUser}) {
     //     .then(setAuthUser)
     // }, [])
     
-    useEffect(()=> {
-        fetch('./posts')
-        .then(r=>r.json())
-        .then(setPosts)
-      }, [])
+    // useEffect(()=> {
+    //     fetch('./posts')
+    //     .then(r=>r.json())
+    //     .then(setPosts)
+    //   }, [])
 
   // const [showComments, setShowComments] = useState(false)
   // const [comment, setComment] = useState("")
@@ -76,7 +77,12 @@ function Home({posts, setPosts, authUser, setAuthUser}) {
 
   // {error: 'No Active Users'}
 
-  const showPosts = posts.map(p => <div className="lists" key={p.id}><h3>{p.content}</h3><p>{p.comments.map( c => " || " + c.comment + " || " )}</p></div>).reverse()
+  // useEffect(()=>{
+  //   authUser !== [] ? setActive(false) : setActive(true)
+  // }, (false))
+  // console.log(active)
+
+  const showPosts = posts.map(p => <div className="lists" key={p.id}><h3>{p.content}</h3><p>{p.comments.map( c => " ~ " + c.comment )}</p></div>).reverse()
   // {showComments ? <input onChange={(e) => newComment(e)} type="text" placeholder="share a comment"></input> : null}
   // <button onClick={clicker}>comments</button>{showComments ? <li>{p.comments.map( c => c.comment)}</li> : null}
 
@@ -108,7 +114,7 @@ function Home({posts, setPosts, authUser, setAuthUser}) {
                 to="/blog">
                 BLOG
             </NavLink>
-
+            
             <NavLink
                 className="links"
                 to="/profile">

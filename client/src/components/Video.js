@@ -13,7 +13,7 @@ function Video({posts, setPosts}) {
     console.log(comment)
 
     function postClick(e){
-      setAddComment(!addComment)
+      setAddComment(true)
       console.log(addComment)
       setPostId(e.id)
       console.log(e.id)
@@ -35,7 +35,7 @@ function Video({posts, setPosts}) {
       })
       .then(r => r.json())
       .then(console.log)
-    
+      setAddComment(false)
   }
     // onClick={(e) => postClick(p)}
 
@@ -83,7 +83,7 @@ function Video({posts, setPosts}) {
             Studio
         </NavLink>
 
-        Video
+            <h1 className="inputs">Video</h1>
 
             { addComment ? <div><input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input><button onClick={postComment}>post</button></div> : null }
 

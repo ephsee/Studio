@@ -1,6 +1,12 @@
 import {useEffect, useState} from 'react'
+import {useHistory} from 'react-router-dom'
 
 function Post({authUser, posts, setPosts}) {
+
+    // let history = useHistory();
+    const [content, setContent] = useState("")
+    const [text, setText] = useState("")
+    // const [posts, setPosts] = useState([])
 
 // useEffect(()=>{
 //     fetch('/posts')
@@ -8,12 +14,9 @@ function Post({authUser, posts, setPosts}) {
 //     .then(setPosts)
 // }, [])
 
-const [content, setContent] = useState("")
-const [text, setText] = useState("")
-// const [posts, setPosts] = useState([])
 
 // console.log(posts)
-console.log(content)
+// console.log(content)
 
 // console.log(authUser.discipline_id)
 
@@ -66,9 +69,12 @@ function handleSubmit(e){
         body: formData
         })
         .then(r => r.json())
-        .then(setPosts([...posts]))
+        .then(data => setPosts([data, ...posts].reverse()))
+        // .then(setPosts)
     }
 
+    // const postsAfterDelete = posts.filter( p => id !== p.id)
+    // setPosts(postsAfterDelete)
 
     return (
     <div>
