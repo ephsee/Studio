@@ -39,6 +39,9 @@ function Create({login}) {
         })
         .then(r => r.json())
         .then(console.log)
+        setUsername("")
+        setPassword("")
+        setDiscipline("")
     }
 
     return (
@@ -46,11 +49,11 @@ function Create({login}) {
         <div style={{ color: randomColor }} className="inputs"> - Create -
 
             <form>
-                <input onChange={handleUsername} type="text" name="username" placeholder="username"></input>
-                <input onChange={handlePassword}type="password" name="password" placeholder="password"></input>
+                <input onChange={handleUsername} type="text" name="username" placeholder="username" value={username}></input>
+                <input onChange={handlePassword}type="password" name="password" placeholder="password" value={password}></input>
                 {/* <input onChange={handleDiscipline}type="number" name="dicipline_id" placeholder="dicipline_id"></input> */}
                 <select onChange={handleDiscipline}>
-                    <option>select discipline</option>
+                    <option value="">select discipline</option>
                     <option value="1">Art</option>
                     <option value="2">Video</option>
                     <option value="3">Music</option>

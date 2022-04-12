@@ -14,7 +14,9 @@ function Blog({posts}) {
   const [comment, setComment] = useState("")
   const [post_id , setPostId] = useState("")
 
-  console.log(comment)
+  const [text, setText] = useState()
+
+  // console.log(comment)
 
   function postClick(e){
     setAddComment(true)
@@ -54,8 +56,8 @@ function Blog({posts}) {
 
     //   console.log(posts)
 
-      const showBlog = posts.filter( p => p.user.discipline_id === 4)
-      console.log(showBlog)
+      // const showBlog = posts.filter( p => p.user.discipline_id === 4)
+      // console.log(showBlog)
 
       // const readThis = new FileReader(posts[6].upload)
 
@@ -144,20 +146,21 @@ function Blog({posts}) {
 
       // npm install @mui/material @emotion/react @emotion/styled
 
-      const texts = posts.filter( p => p.user.discipline_id === 4).map( u => u.upload)
+      // const texts = posts.filter( p => p.user.discipline_id === 4).map( u => u.upload)
       
-      const readFile = async (file) => {
-        // for (let url in file){
-          // file.forEach( url => {
-            await fetch(file).then(r=>r.text()).then(text => {
-              console.log(text)
-              return text
-            })
-          // })
-        // }
-      }
+      // const readFile = async (file) => {
+      //   // for (let url in file){
+      //     // file.forEach( url => {
+      //       await fetch(file).then(r=>r.text()).then(text => {
+      //         // console.log(text)
+      //         setText(text)
+      //       })
+      //     // })
+      //   // }
+      // }
 
-      console.log(readFile(texts))
+      // console.log(readFile(texts))
+      // console.log(text)
 
 
 
@@ -165,7 +168,7 @@ function Blog({posts}) {
 
 
 
-      const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p>{a.content}</p><p> {a.upload} </p></div>).reverse()
+      const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div className="inputs blogs" onClick={(e) => postClick(a)} key={a.id}> <h3>~ {a.content}</h3> <p> {a.blog} </p></div>).reverse()
 
       // const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p>{a.content}</p>{text(a.upload)}</div>).reverse();
 
@@ -196,7 +199,6 @@ function Blog({posts}) {
         { addComment ? <div className="inputs"><input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input><button onClick={postComment}>post</button></div> : null }
 
         {showPost}
-        {/* {renderBlogs} */}
 
     </div>
   )

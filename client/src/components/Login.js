@@ -32,6 +32,8 @@ function Login({setAuthUser}) {
         })
         .then(r => r.json())
         .then(setAuthUser)
+        setUsername("")
+        setPassword("")
     }
 
     //     useEffect(()=>{
@@ -44,8 +46,8 @@ function Login({setAuthUser}) {
 
     <div style={{ color: randomColor }} className="inputs"> - Login - 
         <form>
-            <input onChange={handleUsername} type="text" name="username" placeholder="username"></input>
-            <input onChange={handlePassword}type="password" name="password" placeholder="password"></input>
+            <input onChange={handleUsername} type="text" name="username" placeholder="username" value={username}></input>
+            <input onChange={handlePassword}type="password" name="password" placeholder="password" value={password}></input>
             <input onClick={submitLogin} type="submit" name="Submit"></input>
         </form>
     </div>

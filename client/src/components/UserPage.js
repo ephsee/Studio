@@ -80,8 +80,8 @@ function UserPage({authUser, posts, setPosts, deletePost}) {
   // }
 
   // console.log(authUser.discipline_id)
-  const count = posts.filter( p => p.user_id == authUser.id).length
-  const userPostsRender = posts.filter( p => p.user_id == authUser.id).map( up => <div key={up.id}><p>{up.content}</p><button onClick={(e) => deletePost(up.id)}>x</button></div>).reverse()
+  const count = posts.filter( p => p.user_id === authUser.id).length
+  const userPostsRender = posts.filter( p => p.user_id === authUser.id).map( up => <div key={up.id}><p>{up.content}</p><button onClick={(e) => deletePost(up.id)}>x</button></div>).reverse()
 
   // const userPosts = posts.filter( p => p.user_id == authUser.id)
   

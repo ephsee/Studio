@@ -24,6 +24,8 @@ function App() {
       // document.location.reload(true)
   }, [])
 
+  console.log(authUser)
+
   // function logOut() {
 
   //   fetch("/logout", {
@@ -118,31 +120,35 @@ function App() {
           <div>
 
             <main>
-            <Switch>
-              <Route exact path="/profile">
-                <UserPage authUser={authUser} posts={posts} setPosts={setPosts}/>
-              </Route>
-              <Route path="/feed">
-                <Home posts={posts} authUser={authUser} setAuthUser={setAuthUser}/>
-              </Route>
-              <Route path="/art">
-                <Art posts={posts} setPosts={setPosts}/>
-              </Route>
-              <Route path="/music">
-                <Music posts={posts} setPosts={setPosts}/>
-              </Route>
-              <Route path="/blog">
-                <Blog posts={posts} setPosts={setPosts}/>
-              </Route>
-              <Route path="/video">
-                <Video posts={posts} setPosts={setPosts}/>
-              </Route>
 
-              <Route exact path="/">
-                <Landing/>
-              </Route>
+              <Switch>
 
-            </Switch>
+                <Route exact path="/profile">
+                  <UserPage authUser={authUser} posts={posts} setPosts={setPosts}/>
+                </Route>
+
+                <Route path="/feed">
+                  <Home posts={posts} authUser={authUser} setAuthUser={setAuthUser}/>
+                </Route>
+                <Route path="/art">
+                  <Art posts={posts} setPosts={setPosts}/>
+                </Route>
+                <Route path="/music">
+                  <Music posts={posts} setPosts={setPosts}/>
+                </Route>
+                <Route path="/blog">
+                  <Blog posts={posts} setPosts={setPosts}/>
+                </Route>
+                <Route path="/video">
+                  <Video posts={posts} setPosts={setPosts}/>
+                </Route>
+
+                <Route exact path="/">
+                  <Landing/>
+                </Route>
+
+              </Switch>
+
             </main>
 
           </div>
