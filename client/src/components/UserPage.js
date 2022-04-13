@@ -4,8 +4,8 @@ import Post from './Post'
 
 function UserPage({authUser, posts, setPosts, deletePost}) {
 
-  let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);  
-
+  let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+      
   // const [full_name, setFull_name] = useState("")
   // const [email, setEmail] = useState("")
   // const [bio, setBio] = useState("")

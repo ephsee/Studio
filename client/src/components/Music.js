@@ -52,7 +52,7 @@ function Music({posts}) {
 
       // <audio controls src={a.upload}>"Your browser does not support the<code>audio</code> element.</audio>
 
-      const showPost = posts.filter( p => p.user.discipline_id === 3).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p>{a.content}</p><audio controls src={a.upload}>Your browser does not support the<code>audio</code> element.</audio></div>).reverse();
+      const showPost = posts.filter( p => p.user.discipline_id === 3).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p className="inputs">{a.content}</p><audio controls src={a.upload}></audio></div>).reverse();
 
       // const showMusic = posts.filter( p => p.user.discipline_id === 3).map( a => <div key={a.id}>{a.content} <ReactAudioPlayer src={a.upload} /> </div>)
 
@@ -71,9 +71,9 @@ function Music({posts}) {
         <h1 style={{ color: randomColor }} className="inputs">Music</h1>
 
         { addComment ? <div className="inputs"><input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input><button onClick={postComment}>post</button></div> : null }
-
+        <div className="inputs grid">
         {showPost}
-
+        </div>
     </div>
   )
 }

@@ -46,7 +46,7 @@ function Create({login}) {
 
     return (
 
-        <div style={{ color: randomColor }} className="inputs"> - Create -
+        <div style={{ color: randomColor }}> - Create -
 
             <form>
                 <input onChange={handleUsername} type="text" name="username" placeholder="username" value={username}></input>

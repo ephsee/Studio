@@ -68,7 +68,7 @@ function Art({posts}) {
           //     for (let {user, age = "DEFAULT AGE", geo: {lat, long}} of users) {
               //         console.log(user, age, lat, long);
               //   }
-              const showPost = posts.filter( p => p.user.discipline_id === 1).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p>{a.content}</p><img className="posts" width="400px" src={a.upload}/></div>).reverse();
+              const showPost = posts.filter( p => p.user.discipline_id === 1).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p className="inputs">{a.content}</p><img className="posts" width="400px" src={a.upload}/></div>).reverse();
 
               console.log(showPost)
 
@@ -145,9 +145,9 @@ function Art({posts}) {
         <h1 style={{ color: randomColor }} className="inputs">Art</h1>
 
         { addComment ? <div className="inputs"><input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input><button onClick={postComment}>post</button></div> : null }
-        
-        {showPost}
-        {/* {showMe} */}
+        <div className="inputs grid">
+          {showPost}
+        </div>
 
     </div>
   )

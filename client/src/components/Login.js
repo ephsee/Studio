@@ -44,7 +44,7 @@ function Login({setAuthUser}) {
 
   return (
 
-    <div style={{ color: randomColor }} className="inputs"> - Login - 
+    <div style={{ color: randomColor }}> - Login - 
         <form>
             <input onChange={handleUsername} type="text" name="username" placeholder="username" value={username}></input>
             <input onChange={handlePassword}type="password" name="password" placeholder="password" value={password}></input>

@@ -30,9 +30,13 @@ a:hover {
 }
 
 .posts{
-    display: grid;
     border: 2px solid black;
-    border-radius: 10px;  
+    border-radius: 10px;
+}
+
+.grid{
+    display: grid;
+    justify-content: space-around;
 }
 
 .lists{

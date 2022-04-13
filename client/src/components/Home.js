@@ -87,7 +87,7 @@ function Home({posts, authUser, setAuthUser}) {
   // }, (false))
   // console.log(active)
 
-  const showPosts = posts.map(p => <div className="lists" key={p.id}><p>{p.content}</p><p style={{ color: 'grey'}}>{p.comments.map( c => " ~ " + c.comment )}</p></div>).reverse()
+  const showPosts = posts.map(p => <div className="lists inputs" key={p.id}> <p>{ p.user.username + " | " }</p><p>{" | " + p.content + " | " }</p><p style={{ color: 'grey'}}>{p.comments.map( c => " | " + c.comment )}</p></div>).reverse()
   // {showComments ? <input onChange={(e) => newComment(e)} type="text" placeholder="share a comment"></input> : null}
   // <button onClick={clicker}>comments</button>{showComments ? <li>{p.comments.map( c => c.comment)}</li> : null}
 
@@ -144,13 +144,13 @@ function Home({posts, authUser, setAuthUser}) {
 
             <div className="inputs">
                 {/* <img src={authUser.pic} alt={authUser.username}/> */}
-                <h1 style={{color : randomColor}}>{authUser.username}</h1>
+                <h1 className="left" style={{color : randomColor}}>{authUser.username}</h1>
             </div>
 
           </div>
 
           <div>
-          {showPosts}
+            {showPosts}
           </div>
     </div>
 

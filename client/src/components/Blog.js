@@ -168,7 +168,7 @@ function Blog({posts}) {
 
 
 
-      const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div className="inputs blogs" onClick={(e) => postClick(a)} key={a.id}> <h3>~ {a.content}</h3> <p> {a.blog} </p></div>).reverse()
+      const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div className="blogs" onClick={(e) => postClick(a)} key={a.id}> <h3 className="inputs">~ {a.content}</h3> <p> {a.blog} </p></div>).reverse()
 
       // const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p>{a.content}</p>{text(a.upload)}</div>).reverse();
 
@@ -198,8 +198,9 @@ function Blog({posts}) {
 
         { addComment ? <div className="inputs"><input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input><button onClick={postComment}>post</button></div> : null }
 
-        {showPost}
-
+        <div className="inputs">
+          {showPost}
+        </div>
     </div>
   )
 }
