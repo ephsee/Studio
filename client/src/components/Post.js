@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import {useState} from 'react'
+// import {useHistory} from 'react-router-dom'
 
 function Post({authUser, posts, setPosts}) {
 
@@ -11,7 +11,7 @@ function Post({authUser, posts, setPosts}) {
     const [heading, setHeading] = useState("")
     const [blog, setBlog] = useState("")
 
-    console.log(authUser.discipline_id)
+    // console.log(authUser.discipline_id)
 
     function handleHeading(e){
         console.log(e.target.value)
@@ -23,8 +23,8 @@ function Post({authUser, posts, setPosts}) {
         setBlog(e.target.value)
     }
 
-    console.log(heading)
-    console.log(blog)
+    // console.log(heading)
+    // console.log(blog)
 
 // useEffect(()=>{
 //     fetch('/posts')
@@ -78,6 +78,8 @@ function submitBlog(e){
             // .then(console.log(newBlog))
             .then(data => setPosts([data, ...posts].reverse()))
             // .then(setPosts)
+            setHeading("")
+            setBlog("")
         }
         
 
@@ -92,7 +94,7 @@ function handleSubmit(e){
 
     // debugger
 
-    console.log(formData)
+    // console.log(formData)
 
     // http://127.0.0.1:3000/
 
@@ -110,6 +112,8 @@ function handleSubmit(e){
         .then(r => r.json())
         .then(data => setPosts([data, ...posts].reverse()))
         // .then(setPosts)
+        setContent("")
+        setText("")
     }
 
     // const postsAfterDelete = posts.filter( p => id !== p.id)

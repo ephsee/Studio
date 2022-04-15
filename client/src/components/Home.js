@@ -1,10 +1,15 @@
-import {useEffect, useState} from 'react'
+// import {useState} from 'react'
 import {NavLink} from 'react-router-dom'
-import {Switch, Route, Redirect} from 'react-router-dom'
+// import {Switch, Route, Redirect, useHistory} from 'react-router-dom'
 import Create from './Create'
 import Login from './Login'
 
 function Home({posts, authUser, setAuthUser}) {
+
+  // let history = useHistory ();
+  //   const handleClick = () => {
+  //      history.push ('/logout');
+  //   }
 
   let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
   // let styleColor1 = "#" + randomColor1
@@ -16,9 +21,9 @@ function Home({posts, authUser, setAuthUser}) {
   // const [authUser, setAuthUser] = useState([])
 
   // const [addComment, setAddComment] = useState(false)
-  const [active, setActive] = useState(false)
+  // const [active, setActive] = useState(false)
 
-  console.log(authUser)
+  // console.log(authUser)
   
   
   // useEffect(()=>{
@@ -69,7 +74,7 @@ function Home({posts, authUser, setAuthUser}) {
 
   // }
 
-  console.log(posts)
+  // console.log(posts)
   // console.log(authUser)
 
   // function postClick(e){
@@ -129,12 +134,13 @@ function Home({posts, authUser, setAuthUser}) {
             </NavLink>
 
             <NavLink
-                className="links"
-                to="/"
                 onClick={(e) => logOut(e)}
-                >
+                className="links"
+                to="/">
                 LOGOUT
             </NavLink>
+
+            {/* <Link to="/" onClick={(e) => logOut(e)} className="links">Logout</Link> */}
             </div>
 
             <div className="right">

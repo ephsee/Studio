@@ -1,11 +1,11 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import {NavLink} from 'react-router-dom'
 
 function Art({posts}) {
 
   let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
 
-  const [showComments, setShowComments] = useState(false)
+  // const [showComments, setShowComments] = useState(false)
   // const [comment, setComment] = useState("")
       
   // function clicker(){
@@ -21,7 +21,7 @@ function Art({posts}) {
   const [comment, setComment] = useState("")
   const [post_id , setPostId] = useState("")
 
-  console.log(comment)
+  // console.log(comment)
 
   function postClick(e){
     setAddComment(true)
@@ -68,9 +68,9 @@ function Art({posts}) {
           //     for (let {user, age = "DEFAULT AGE", geo: {lat, long}} of users) {
               //         console.log(user, age, lat, long);
               //   }
-              const showPost = posts.filter( p => p.user.discipline_id === 1).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p className="inputs">{a.content}</p><img className="posts" width="400px" src={a.upload}/></div>).reverse();
+              const showPost = posts.filter( p => p.user.discipline_id === 1).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p className="inputs">{a.content}</p><img className="posts" width="400px" src={a.upload} alt={a.id}/></div>).reverse();
 
-              console.log(showPost)
+              // console.log(showPost)
 
             //   const showMe = Object.values(showPost)
             //   console.log(showMe)

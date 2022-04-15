@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import {NavLink} from 'react-router-dom'
 // import ReactAudioPlayer from 'react-audio-player';
 
@@ -10,7 +10,7 @@ function Music({posts}) {
   const [comment, setComment] = useState("")
   const [post_id , setPostId] = useState("")
 
-  console.log(comment)
+  // console.log(comment)
 
   function postClick(e){
     setAddComment(true)

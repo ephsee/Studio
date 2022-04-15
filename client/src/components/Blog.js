@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import {NavLink} from 'react-router-dom'
 
 // import fs from 'fs'
@@ -6,7 +6,7 @@ import {NavLink} from 'react-router-dom'
 
 // const fileReader = new FileReader();
 
-function Blog({posts}) {
+function Blog({posts, setPosts}) {
 
   let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
   
@@ -14,7 +14,7 @@ function Blog({posts}) {
   const [comment, setComment] = useState("")
   const [post_id , setPostId] = useState("")
 
-  const [text, setText] = useState()
+  // const [text, setText] = useState()
 
   // console.log(comment)
 
@@ -41,6 +41,7 @@ function Blog({posts}) {
     })
     .then(r => r.json())
     .then(console.log)
+    // setPosts(posts)
     setAddComment(false)
 }
 

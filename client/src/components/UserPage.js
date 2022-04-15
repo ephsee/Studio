@@ -1,8 +1,8 @@
 import {NavLink} from 'react-router-dom'
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import Post from './Post'
 
-function UserPage({authUser, posts, setPosts, deletePost}) {
+function UserPage({authUser, posts, setPosts}) {
 
   let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
       
@@ -69,8 +69,8 @@ function UserPage({authUser, posts, setPosts, deletePost}) {
     setPosts(postsAfterDelete)
 }
 
-  console.log(posts)
-  console.log(authUser)
+  // console.log(posts)
+  // console.log(authUser)
 
   // if authUser === {error: 'No Active Users'} || {message: 'User Logged Out'} {
   //   setProfileView(false)
@@ -122,14 +122,6 @@ function UserPage({authUser, posts, setPosts, deletePost}) {
                     <p style={{ color: 'grey'}}>{count} posts to date</p>
                     <p>member since: {authUser.created_at}</p>
                 </div>
-
-          {/* <NavLink
-            // className="links linksLOGOUT"
-            to="/"
-            onClick={(e) => logOut(e)}
-            >
-            LOGOUT
-          </NavLink> */}
 
                   <Post authUser={authUser} setPosts={setPosts} posts={posts}/>
 
