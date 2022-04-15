@@ -2,28 +2,78 @@ import {NavLink} from 'react-router-dom'
 import {useState} from 'react'
 import Post from './Post'
 
-function UserPage({authUser, posts, setPosts}) {
+function UserPage({authUser, setAuthUser, posts, setPosts}) {
 
-  let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+  let randomColor1 = "#" + Math.floor(Math.random()*16777215).toString(16);
+  let randomColor2 = "#" + Math.floor(Math.random()*16777215).toString(16);
       
-  // const [full_name, setFull_name] = useState("")
-  // const [email, setEmail] = useState("")
-  // const [bio, setBio] = useState("")
-  // const [pic, setPic] = useState("")
-  // const [link1, setlink1] = useState("")
-  // const [link2, setlink2] = useState("")
-  // const [link3, setlink3] = useState("")
+  const [full_name, setFull_name] = useState("")
+  const [email, setEmail] = useState("")
+  const [bio, setBio] = useState("")
+  const [pic, setPic] = useState("")
+  const [link1, setLink1] = useState("")
+  const [link2, setLink2] = useState("")
+  const [link3, setLink3] = useState("")
+  
   const [showUpdate, setShowUpdate] = useState(false)
 
-  // const updateData = {
-  //   full_name,
-  //   email,
-  //   bio,
-  //   pic,
-  //   link1,
-  //   link2,
-  //   link3
-  // }
+  function handleFullName(e){
+    setFull_name(e.target.value)
+    console.log(full_name)
+  }
+  function handleEmail(e){
+    setEmail(e.target.value)
+    console.log(email)
+  }
+  function handleBio(e){
+    setBio(e.target.value)
+    console.log(bio)
+  }
+  function handlePic(e){
+    setPic(e.target.value)
+    console.log(pic)
+  }
+  function handleLink1(e){
+    setLink1(e.target.value)
+    console.log(link1)
+  }
+  function handleLink2(e){
+    setLink2(e.target.value)
+    console.log(link2)
+  }
+  function handleLink3(e){
+    setLink3(e.target.value)
+    console.log(link3)
+  }
+
+  const userId = authUser.id
+  console.log(userId)
+
+  console.log(authUser)
+  console.log(authUser.id)
+
+  function submitUpdate(e) {
+    e.preventDefault()
+    
+    const updateData = {
+    full_name: full_name,
+    eamil: email,
+    bio: bio,
+    pic: pic,
+    link1: link1,
+    link2: link2,
+    link3: link3,
+  }
+
+    fetch(`/users/${userId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify(updateData)
+    })
+    .then(r=>r.json())
+    .then(setAuthUser)
+    setShowUpdate(false)
+  }
 
   function updateForm(){
     setShowUpdate(!showUpdate)
@@ -81,11 +131,15 @@ function UserPage({authUser, posts, setPosts}) {
 
   // console.log(authUser.discipline_id)
   const count = posts.filter( p => p.user_id === authUser.id).length
-  const userPostsRender = posts.filter( p => p.user_id === authUser.id).map( up => <div key={up.id}><p>{up.content}</p><button onClick={(e) => deletePost(up.id)}>x</button></div>).reverse()
 
-  // const userPosts = posts.filter( p => p.user_id == authUser.id)
-  
-  // console.log(userPosts)
+  const userPostsRender = posts.filter( p => p.user_id === authUser.id).map( up => {
+        return (
+        <div key={up.id}>
+          <p>{up.content}</p>
+          <button onClick={(e) => deletePost(up.id)}>x</button>
+        </div>
+        )
+  }).reverse()
 
   return (
     <div>
@@ -99,28 +153,31 @@ function UserPage({authUser, posts, setPosts}) {
 
                 <div className="inputs">
                   <button onClick={updateForm}>update</button>
-                    {showUpdate ? <form>
-                      <input type="text" name="full_name" placeholder="full name"></input>
-                      <input type="text" name="email" placeholder="email"></input>
-                      <input type="text" name="bio" placeholder="bio"></input>
-                      <input type="text" name="pic" placeholder="pic"></input>
-                      <input type="text" name="link1" placeholder="linkedin"></input>
-                      <input type="text" name="link2" placeholder="instagram"></input>
-                      <input type="text" name="link3" placeholder="twitter"></input>
-                      <input  type="submit" name="submit"></input>
+                    {showUpdate ? <form onSubmit={(e) => submitUpdate(e)}>
+                      <input onChange={handleFullName} type="text" name="full_name" placeholder="full name"></input>
+                      <input onChange={handleEmail} type="text" name="email" placeholder="email"></input>
+                      <input onChange={handleBio} type="text" name="bio" placeholder="bio"></input>
+                      <input onChange={handlePic} type="text" name="pic" placeholder="pic"></input>
+                      <input onChange={handleLink1} type="text" name="link1" placeholder="linkedin"></input>
+                      <input onChange={handleLink2} type="text" name="link2" placeholder="instagram"></input>
+                      <input onChange={handleLink3} type="text" name="link3" placeholder="twitter"></input>
+                      <input type="submit" name="submit"></input>
                     </form> : null}
                 </div>
 
-                <h1 style={{ color: randomColor }} className="inputs">User Page</h1>
+                <h1 style={{ color: randomColor1 }} className="inputs">User Page</h1>
 
                 <div>
-                    {/* <img alt={authUser.username} src={authUser.pic}/> */}
-                    <h1 style={{ color: 'grey'}}>{authUser.username}</h1>
-                    <h2>{authUser.full_name}</h2>
+                    <img alt={authUser.pic} width="300px" src={authUser.pic}/>
+                    <h1 style={{ color: randomColor2 }}>{authUser.username}</h1>
+                    <h2 style={{ color: 'grey'}}>{authUser.full_name}</h2>
                     <p style={{ color: 'grey'}}>{authUser.bio}</p>
-                    <p>{authUser.email}</p> 
-                    <p style={{ color: 'grey'}}>{count} posts to date</p>
+                    <p>{count} posts to date</p>
                     <p>member since: {authUser.created_at}</p>
+                    <p style={{ color: 'grey'}}>{authUser.email}</p> 
+                    <p style={{ color: 'grey'}}>LinkedIn: {authUser.link1}</p>
+                    <p style={{ color: 'grey'}}>Instgram: {authUser.link2}</p>
+                    <p style={{ color: 'grey'}}>Twitter: {authUser.link3}</p>
                 </div>
 
                   <Post authUser={authUser} setPosts={setPosts} posts={posts}/>

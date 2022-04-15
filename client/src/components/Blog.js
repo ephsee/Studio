@@ -169,7 +169,13 @@ function Blog({posts, setPosts}) {
 
 
 
-      const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div className="blogs" onClick={(e) => postClick(a)} key={a.id}> <h3 className="inputs">~ {a.content}</h3> <p> {a.blog} </p></div>).reverse()
+      const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => {
+          return(
+            <div onClick={(e) => postClick(a)} key={a.id} className="blog-card">
+              <h3 className="inputs">~ {a.content}</h3>
+              <p> {a.blog} </p>
+            </div>)
+        }).reverse()
 
       // const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p>{a.content}</p>{text(a.upload)}</div>).reverse();
 
@@ -197,9 +203,14 @@ function Blog({posts, setPosts}) {
 
         <h1 style={{ color: randomColor }} className="inputs">Blog</h1>
 
-        { addComment ? <div className="inputs"><input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input><button onClick={postComment}>post</button></div> : null }
+        { addComment ?
+          <div className="inputs">
+            <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>
+            <button onClick={postComment}>post</button>
+          </div>
+          : null }
 
-        <div className="inputs">
+        <div className="blogs">
           {showPost}
         </div>
     </div>

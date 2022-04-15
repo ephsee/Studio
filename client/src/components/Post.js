@@ -14,12 +14,12 @@ function Post({authUser, posts, setPosts}) {
     // console.log(authUser.discipline_id)
 
     function handleHeading(e){
-        console.log(e.target.value)
+        // console.log(e.target.value)
         setHeading(e.target.value)
     }
 
     function handleBlog(e){
-        console.log(e.target.value)
+        // console.log(e.target.value)
         setBlog(e.target.value)
     }
 
@@ -45,13 +45,13 @@ function Post({authUser, posts, setPosts}) {
 // console.log(show)
 
 function handleContent(e){
-    console.log(e.target.files[0])
+    // console.log(e.target.files[0])
     setContent(e.target.files[0])
     // setShow(e.target.value)
 }
 
 function handleText(e){
-    console.log(e.target.value)
+    // console.log(e.target.value)
     setText(e.target.value)
 }
 

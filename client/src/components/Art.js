@@ -68,7 +68,14 @@ function Art({posts}) {
           //     for (let {user, age = "DEFAULT AGE", geo: {lat, long}} of users) {
               //         console.log(user, age, lat, long);
               //   }
-              const showPost = posts.filter( p => p.user.discipline_id === 1).map( a => <div onClick={(e) => postClick(a)} key={a.id}><p className="inputs">{a.content}</p><img className="posts" width="400px" src={a.upload} alt={a.id}/></div>).reverse();
+        const showPost = posts.filter( p => p.user.discipline_id === 1).map( a => {
+            return(
+                <div onClick={(e) => postClick(a)} key={a.id}>
+                  <p className="inputs">{a.content}</p>
+                  <img className="posts" width="400px" src={a.upload} alt={a.id}/>
+                  </div>
+            )
+          }).reverse();
 
               // console.log(showPost)
 

@@ -51,7 +51,7 @@ function App() {
                 </Route> */}
 
                 <Route path="/profile">
-                  <UserPage authUser={authUser} posts={posts} setPosts={setPosts}/>
+                  <UserPage authUser={authUser} setAuthUser={setAuthUser} posts={posts} setPosts={setPosts}/>
                 </Route>
 
                 <Route path="/feed">

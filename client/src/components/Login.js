@@ -9,12 +9,12 @@ function Login({setAuthUser}) {
 
     function handleUsername(e){
         setUsername(e.target.value)
-        console.log(e.target.value)
+        // console.log(e.target.value)
     }
 
     function handlePassword(e){
         setPassword(e.target.value)
-        console.log(e.target.value)        
+        // console.log(e.target.value)        
     }
 
     function submitLogin(e){
@@ -35,12 +35,6 @@ function Login({setAuthUser}) {
         setUsername("")
         setPassword("")
     }
-
-    //     useEffect(()=>{
-    //     fetch("/authorized_user")
-    //     .then(r => r.json())
-    //     .then(setAuthUser)
-    // }, [])
 
   return (
 
