@@ -13,7 +13,7 @@ function Music({posts}) {
   // console.log(comment)
 
   function postClick(e){
-    setAddComment(true)
+    setAddComment(!addComment)
     console.log(addComment)
     setPostId(e.id)
     console.log(e.id)
@@ -39,31 +39,38 @@ function Music({posts}) {
 
     const showPost = posts.filter( p => p.user.discipline_id === 3).map( a => {
         return(
-            <div onClick={(e) => postClick(a)} key={a.id}>
-              <p className="inputs">{a.content}</p>
+            <div className="center" onClick={(e) => postClick(a)} key={a.id}>
+              <p className="center">{a.content}</p>
               <audio controls src={a.upload}></audio>
+              { addComment ? 
+              <div className="center">
+                <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>
+                <button onClick={postComment}>post</button>
+              </div>
+              : null }
             </div>
         )
     }).reverse();
 
   return (
     <div>
-        
+        <div className="left">
         <NavLink
             className="links"
             to="/feed">
             Studio
         </NavLink>
+        </div>
         
-        <h1 style={{ color: randomColor }} className="inputs">Music</h1>
+        <h1 style={{ color: randomColor }} className="center">Music</h1>
 
-        { addComment ? 
+        {/* { addComment ? 
           <div className="inputs">
             <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>
             <button onClick={postComment}>post</button>
           </div>
-           : null }
-          <div className="inputs grid">
+           : null } */}
+          <div className="blogs">
             {showPost}
           </div>
     </div>

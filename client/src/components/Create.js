@@ -51,7 +51,6 @@ function Create({login}) {
             <form>
                 <input onChange={handleUsername} type="text" name="username" placeholder="username" value={username}></input>
                 <input onChange={handlePassword}type="password" name="password" placeholder="password" value={password}></input>
-                {/* <input onChange={handleDiscipline}type="number" name="dicipline_id" placeholder="dicipline_id"></input> */}
                 <select onChange={handleDiscipline}>
                     <option value="">select discipline</option>
                     <option value="1">Art</option>

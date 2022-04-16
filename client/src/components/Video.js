@@ -15,7 +15,7 @@ function Video({posts, setPosts}) {
     // console.log(comment)
 
     function postClick(e){
-      setAddComment(true)
+      setAddComment(!addComment)
       console.log(addComment)
       setPostId(e.id)
       console.log(e.id)
@@ -39,65 +39,42 @@ function Video({posts, setPosts}) {
       .then(console.log)
       setAddComment(false)
       setPosts([...posts])
-  }
-    // onClick={(e) => postClick(p)}
-
-    //   useEffect(()=> {
-    //     fetch('./posts')
-    //     .then(r=>r.json())
-    //     .then(setPosts)
-    //   }, [])
-
-    //   console.log(posts)
-
-      // fluid={false} width={480} height={272}
-
-      // <div style="height:50px; width:100px">
-      //     <Player
-      //       playsInline
-      //       poster="/assets/poster.png"
-      //       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-      //       fluid={false}
-      //       width={100%}
-      //       height={100%}
-      //     />
-      // playsInline
-      //   poster="/assets/poster.png"
-      //   src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-      //   fluid={false}
-      //   width={480}
-      //   height={272}
-      // </div>
-
-      
+  }    
 
       const showPost = posts.filter( p => p.user.discipline_id === 2).map( a => {
           return(
-            <div onClick={(e) => postClick(a)} key={a.id}>
-              <p className="inputs">{a.content}</p>
-              <Player className="posts" fluid={false} width={480} height={272} src={a.upload}></Player>
+            <div className="center" onClick={(e) => postClick(a)} key={a.id}>
+              <p className="center">{a.content}</p>
+              <Player className="posts" width={480} height={272} fluid={false} muted={false} src={a.upload} poster=""></Player>
+              { addComment ? <div className="center">
+                <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>
+                <button onClick={postComment}>post</button>
+                </div> : null }
               </div>
           )
         }).reverse();
 
-      // const showVideo = posts.filter( p => p.user.discipline_id === 2).map( a => <div key={a.id}>{a.content}</div>)
-
-      // console.log(showVideo)
-
   return (
     <div>
+
+        <div className="left">
         
-        <NavLink
-            className="links"
-            to="/feed">
-            Studio
-        </NavLink>
+          <NavLink
+              className="links"
+              to="/feed">
+              Studio
+          </NavLink>
 
-            <h1 style={{ color: randomColor }} className="inputs">Video</h1>
+        </div>
 
-            { addComment ? <div className="inputs"><input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input><button onClick={postComment}>post</button></div> : null }
+            <h1 style={{ color: randomColor }} className="center">Video</h1>
 
-            <div className="inputs grid">
+            {/* { addComment ? <div className="inputs">
+              <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>
+              <button onClick={postComment}>post</button>
+              </div> : null } */}
+
+            <div className="center vids">
               {showPost}
             </div>
     </div>

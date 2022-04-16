@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.css';
 import {useEffect, useState} from 'react'
 import {Switch, Route} from 'react-router-dom'
@@ -9,15 +8,12 @@ import Art from './components/Art'
 import Music from './components/Music'
 import Blog from './components/Blog'
 import Video from './components/Video'
-// import LogoutPage from './components/LogoutPage'
 
 function App() {
   
   const [posts, setPosts] = useState([])
 
   const [authUser, setAuthUser] = useState([])
-
-
 
   useEffect(()=>{
       fetch("/authorized_user")
@@ -45,10 +41,6 @@ function App() {
                 <Route exact path="/">
                   <Landing/>
                 </Route>
-
-                {/* <Route path="/logout">
-                  <LogoutPage/>
-                </Route> */}
 
                 <Route path="/profile">
                   <UserPage authUser={authUser} setAuthUser={setAuthUser} posts={posts} setPosts={setPosts}/>

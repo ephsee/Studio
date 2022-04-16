@@ -23,10 +23,33 @@ a:hover {
 
 .links{
     padding: 10px;
-    border: 2px solid black;
-    border-radius: 10px;
+    border: 2px solid rgb(68, 68, 68);
+    border-radius: 25% 10%;
     background-color: black;
     color: white;
+}
+
+input{
+    background-color: rgb(0, 0, 0, 0.5);
+    color: white;
+    font-family: "Helvetica Neue",Helvetica,Arial;
+}
+select{
+    background-color: rgb(0, 0, 0, 0.5);
+    color: white;
+    font-family: "Helvetica Neue",Helvetica,Arial;
+
+}
+textarea{
+    background-color: rgb(0, 0, 0, 0.5);
+    color: white;
+    font-family: "Helvetica Neue",Helvetica,Arial;
+}
+
+button{
+    background-color: rgb(0, 0, 0, 0.5);
+    color: white;
+    font-family: "Helvetica Neue",Helvetica,Arial;
 }
 
 .posts{
@@ -55,7 +78,41 @@ a:hover {
     display: grid;
     justify-content: space-around;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-rows: 30% 70%;
+}
+
+.vids {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 33.3% 33.3% 33.3%; 
+    grid-template-rows: 60% 40%;
+}
+
+.image:hover{
+    transform: scale(1.3);
+}
+
+.profile-pic{
+    border: 5px solid black;
+    border-radius: 25% 10%;
+}
+.profile-box{
+    width: 700px;
+    background-color: rgb(0, 0, 0, 0.5);
+    border: 5px solid rgb(61, 61, 61);
+    border-radius: 10px;
+}
+
+.delete{
+    background-color: black;
+    color: red;
+    border: 2px solid rgb(61, 61, 61);
+    border-radius: 100%;
+}
+
+.center{
+    align-items: center;
+    text-align: center;
 }
 
 /* .blog-card{
@@ -64,6 +121,30 @@ a:hover {
     width: 700px;
     border: 2px solid black;
     border-radius: 10px; 
+} */
+
+/* Flashing */
+
+/* .hover13 figure:hover img {
+	opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+}
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
 } */
 
 
