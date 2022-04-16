@@ -55,15 +55,15 @@ function Music({posts}) {
 
   return (
     <div>
-        <div className="left">
+        <div>
         <NavLink
-            className="links"
+            className="links headers"
             to="/feed">
             Studio
         </NavLink>
         </div>
         
-        <h1 style={{ color: randomColor }} className="center">Music</h1>
+        <h1 style={{ color: randomColor }} className="center headers">Music</h1>
 
         {/* { addComment ? 
           <div className="inputs">

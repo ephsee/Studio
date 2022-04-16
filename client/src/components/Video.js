@@ -15,11 +15,11 @@ function Video({posts, setPosts}) {
     // console.log(comment)
 
     function postClick(e){
+      console.log(e)
       setAddComment(!addComment)
       console.log(addComment)
       setPostId(e.id)
       console.log(e.id)
-      console.log(e)
     }
 
     function postComment(e){
@@ -44,9 +44,9 @@ function Video({posts, setPosts}) {
       const showPost = posts.filter( p => p.user.discipline_id === 2).map( a => {
           return(
             
-            <div className="center posts">
-              <h3 className="inputs" onClick={(e) => postClick(a)} key={a.id} >{a.content} ~ by: {a.user.username}</h3>
-              <Player className="posts" width={480} src={a.upload} poster=""></Player>
+            <div className="center" key={a.id}>
+              <h3 className="inputs" onClick={(e) => postClick(a)}  >{a.content} ~ by: {a.user.username}</h3>
+              <Player className="posts" width={480} controls src={a.upload} poster=""></Player>
               { addComment ? <div className="center">
                 <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>
                 <button onClick={postComment}>post</button>
@@ -58,17 +58,15 @@ function Video({posts, setPosts}) {
   return (
     <div>
 
-        <div className="left">
-        
+        <div>        
           <NavLink
-              className="links"
+              className="links headers"
               to="/feed">
               Studio
           </NavLink>
-
         </div>
 
-            <h1 style={{ color: randomColor }} className="center">Video</h1>
+            <h1 style={{ color: randomColor }} className="center headers">Video</h1>
 
             {/* { addComment ? <div className="inputs">
               <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>

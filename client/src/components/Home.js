@@ -42,22 +42,22 @@ function Home({posts, authUser, setAuthUser, setOnePost}) {
             <div className="left">
 
               <NavLink
-                  className="links"
+                  className="links headers"
                   to="/art">
                   ART
               </NavLink>
               <NavLink
-                  className="links"
+                  className="links headers"
                   to="/music">
                   MUSIC
               </NavLink>
               <NavLink
-                  className="links"
+                  className="links headers"
                   to="/video">
                   VIDEO
               </NavLink>
               <NavLink
-                  className="links"
+                  className="links headers"
                   to="/blog">
                   BLOG
               </NavLink>
@@ -67,14 +67,14 @@ function Home({posts, authUser, setAuthUser, setOnePost}) {
             <div className="right">
 
               <NavLink
-                  className="links"
+                  className="links headers"
                   to="/profile">
                   PROFILE
               </NavLink>
 
               <NavLink
                   onClick={(e) => logOut(e)}
-                  className="links"
+                  className="links headers"
                   to="/">
                   LOGOUT
               </NavLink>
@@ -88,7 +88,7 @@ function Home({posts, authUser, setAuthUser, setOnePost}) {
                     <Login setAuthUser={setAuthUser}/>
                     <Create />
                     <div>
-                      <h1 className="center" style={{color : randomColor}}>{authUser.username}</h1>
+                      <h1 className="center headers" style={{color : randomColor}}>{authUser.username}</h1>
                     </div>
                   </div>
             </div>

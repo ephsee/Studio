@@ -54,15 +54,15 @@ function Blog({posts, setPosts}) {
   return (
 
     <div>
-          <div className="left">
+          <div>
           <NavLink
-              className="links"
+              className="links headers"
               to="/feed">
               Studio
           </NavLink>
           </div>
         <div>
-        <h1 style={{ color: randomColor }} className="center">Blog</h1>
+        <h1 style={{ color: randomColor }} className="center headers">Blog</h1>
 
         {/* { addComment ?
           <div className="inputs">

@@ -36,7 +36,7 @@ function Art({posts}) {
 }
         const showPost = posts.filter( p => p.user.discipline_id === 1).map( a => {
             return(
-                <div className="center posts" onClick={(e) => postClick(a)} key={a.id}>
+                <div className="center" onClick={(e) => postClick(a)} key={a.id}>
                   <h3 className="inputs">{a.content} ~ by: {a.user.username}</h3>
                   <img className="posts image" width="400px" src={a.upload} alt={a.id}/>
                   { addComment ? <div className="center">
@@ -49,15 +49,15 @@ function Art({posts}) {
 
   return (
     <div>
-        <div className="left">
+        <div>
         <NavLink
-            className="links"
+            className="links headers"
             to="/feed">
             Studio
         </NavLink>
         </div>
 
-        <h1 style={{ color: randomColor }} className="center">Art</h1>
+        <h1 style={{ color: randomColor }} className="center headers">Art</h1>
 
         {/* { addComment ? <div className="inputs">
           <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>

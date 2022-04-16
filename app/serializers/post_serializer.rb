@@ -1,6 +1,6 @@
 class PostSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :content, :user_id, :blog, :upload
+  attributes :id, :content, :user_id, :blog, :upload, :discipline
   belongs_to :user
   has_many :comments
 
@@ -14,6 +14,10 @@ class PostSerializer < ActiveModel::Serializer
 
   def upload
     rails_blob_path(object.upload, only_path: true) if object.upload.attached?
+  end
+
+  def discipline
+    object.user.discipline.category
   end
   
 end

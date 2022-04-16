@@ -98,15 +98,15 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
 
   return (
     <div>
-          <div className="left">
+          <div>
               <NavLink
-                className="links"
+                className="links headers"
                 to="/feed">
                 Studio
               </NavLink>
           </div>
 
-          <h1 style={{ color: randomColor1 }} className="inputs">User Page</h1>
+          <h1 style={{ color: randomColor1 }} className="inputs headers">User Page</h1>
 
                 <div className="inputs">
                   {/* <button onClick={updateForm}>update</button> */}
@@ -127,7 +127,7 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
 
                 <div className="profile-box center">
                     <img onClick={updateForm} className="profile-pic" width="300px" src={authUser.pic}/>
-                    <h1 style={{ color: randomColor2 }}>{authUser.username}</h1>
+                    <h1 className="headers" style={{ color: randomColor2 }}>{authUser.username}</h1>
                     <h2 style={{ color: 'grey'}}>{authUser.full_name}</h2>
                     <p style={{ color: 'grey'}}>{authUser.bio}</p>
                     <p>{count} posts to date</p>

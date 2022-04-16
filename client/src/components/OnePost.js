@@ -9,7 +9,7 @@ function OnePost({onePost}) {
     console.log(onePost.content)
     console.log(onePost.upload)
     console.log(onePost.user.username)
-    console.log(onePost.user)
+    console.log(onePost.discipline)
     console.log(onePost.comments)
 
     // const [addComment, setAddComment] = useState(false)
@@ -28,6 +28,8 @@ function OnePost({onePost}) {
     // }
   
     function postComment(e){
+
+        e.preventDefault()
   
       const newComment = {
         post_id,
@@ -51,7 +53,7 @@ function OnePost({onePost}) {
   return (
 
     <div>
-            <div className="left">
+            <div>
                 
                 <NavLink
                     className="links"
@@ -66,8 +68,9 @@ function OnePost({onePost}) {
 
             <div>
                 <div className="center">
-                    <p>username: {onePost.user.username}</p>
-                    <p>post name: {onePost.content}</p>
+                    <p className="headers">username: {onePost.user.username}</p>
+                    <p>page: {onePost.discipline}</p>
+                    <p>description: {onePost.content}</p>
                     {/* {onePost.upload} */}
                     <p>user email: {onePost.user.email}</p>
                     <p>user linkedin: {onePost.user.link1}</p>
