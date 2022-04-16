@@ -29,7 +29,8 @@ function Create({login}) {
         const user = {
             username: username,
             password: password,
-            discipline_id: discipline
+            discipline_id: discipline,
+            pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqrrxsxZSpsfebkw8VLXe6R5j7mryT6PK7Pg&usqp=CAU"
         }
 
         fetch('/users',{

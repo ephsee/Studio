@@ -10,7 +10,7 @@ function Art({posts}) {
   const [post_id , setPostId] = useState("")
 
   function postClick(e){
-    setAddComment(!addComment)
+    setAddComment(true)
     console.log(addComment)
     setPostId(e.id)
     console.log(e.id)
@@ -32,11 +32,12 @@ function Art({posts}) {
     .then(r => r.json())
     .then(console.log)
     setAddComment(false)
+    setComment("")
 }
         const showPost = posts.filter( p => p.user.discipline_id === 1).map( a => {
             return(
-                <div className="center" onClick={(e) => postClick(a)} key={a.id}>
-                  <p className="center">{a.content}</p>
+                <div className="center posts" onClick={(e) => postClick(a)} key={a.id}>
+                  <h3 className="inputs">{a.content} ~ by: {a.user.username}</h3>
                   <img className="posts image" width="400px" src={a.upload} alt={a.id}/>
                   { addComment ? <div className="center">
                     <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>

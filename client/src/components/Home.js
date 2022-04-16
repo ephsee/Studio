@@ -1,8 +1,10 @@
-import {NavLink} from 'react-router-dom'
+import {NavLink, useHistory} from 'react-router-dom'
 import Create from './Create'
 import Login from './Login'
 
-function Home({posts, authUser, setAuthUser}) {
+function Home({posts, authUser, setAuthUser, setOnePost}) {
+
+  let history = useHistory()
 
   let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
 
@@ -15,9 +17,15 @@ function Home({posts, authUser, setAuthUser}) {
     .then(setAuthUser)
   }
 
+  function checkOnClick(e){
+      console.log(e)
+      setOnePost(e)
+      history.push(`/posts/${e.id}`)
+  }
+
   const showPosts = posts.map(p => {
     return (
-      <div className="center profile-box" key={p.id}>
+      <div className="center profile-box" key={p.id} onClick={(e) => checkOnClick(p)}>
         <p>{ p.user.username + " | " }</p>
         <p>{" | " + p.content + " | " }</p>
         <p style={{ color: 'grey'}}>{p.comments.map( c => " | " + c.comment )}</p>

@@ -43,14 +43,15 @@ function Video({posts, setPosts}) {
 
       const showPost = posts.filter( p => p.user.discipline_id === 2).map( a => {
           return(
-            <div className="center" onClick={(e) => postClick(a)} key={a.id}>
-              <p className="center">{a.content}</p>
-              <Player className="posts" width={480} height={272} fluid={false} muted={false} src={a.upload} poster=""></Player>
+            
+            <div className="center posts">
+              <h3 className="inputs" onClick={(e) => postClick(a)} key={a.id} >{a.content} ~ by: {a.user.username}</h3>
+              <Player className="posts" width={480} src={a.upload} poster=""></Player>
               { addComment ? <div className="center">
                 <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>
                 <button onClick={postComment}>post</button>
                 </div> : null }
-              </div>
+            </div>
           )
         }).reverse();
 
@@ -74,7 +75,7 @@ function Video({posts, setPosts}) {
               <button onClick={postComment}>post</button>
               </div> : null } */}
 
-            <div className="center vids">
+            <div className="inputs vids">
               {showPost}
             </div>
     </div>

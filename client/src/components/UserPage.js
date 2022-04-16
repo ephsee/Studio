@@ -106,7 +106,7 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
               </NavLink>
           </div>
 
-          <h1 style={{ color: randomColor1 }} className="center">User Page</h1>
+          <h1 style={{ color: randomColor1 }} className="inputs">User Page</h1>
 
                 <div className="inputs">
                   {/* <button onClick={updateForm}>update</button> */}
@@ -126,7 +126,7 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
           <div className="inputs">
 
                 <div className="profile-box center">
-                    <img onClick={updateForm} className="profile-pic" alt={authUser.pic} width="300px" src={authUser.pic}/>
+                    <img onClick={updateForm} className="profile-pic" width="300px" src={authUser.pic}/>
                     <h1 style={{ color: randomColor2 }}>{authUser.username}</h1>
                     <h2 style={{ color: 'grey'}}>{authUser.full_name}</h2>
                     <p style={{ color: 'grey'}}>{authUser.bio}</p>

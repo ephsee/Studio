@@ -11,7 +11,7 @@ d2 = Discipline.create(category: "Video", description: "the moving image")
 d3 = Discipline.create(category: "Music", description: "sonic soundscaping")
 d4 = Discipline.create(category: "Writing", description: "literal literacy")
 
-u1 = User.create(full_name: "Francois Spies", username: "ephsee", password: "yomomma", bio: "big man small world", discipline_id: d1.id, email: "ephsee@hotmail.com", pic: "my face here", link1: "linkedin", link2: "instgram", link3: "twitter")
+# u1 = User.create(full_name: "Francois Spies", username: "ephsee", password: "yomomma", bio: "big man small world", discipline_id: d1.id, email: "ephsee@hotmail.com", pic: "my face here", link1: "linkedin", link2: "instgram", link3: "twitter")
 
 # p1 = Post.create(content: "details about image", blog:"some blogg info", user_id: u1.id)
 

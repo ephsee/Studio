@@ -9,8 +9,10 @@ function Blog({posts, setPosts}) {
   const [comment, setComment] = useState("")
   const [post_id , setPostId] = useState("")
 
+  console.log(posts)
+
   function postClick(e){
-    setAddComment(!addComment)
+    setAddComment(true)
     console.log(addComment)
     setPostId(e.id)
     console.log(e.id)
@@ -37,8 +39,8 @@ function Blog({posts, setPosts}) {
 
       const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => {
           return(
-            <div className="center" onClick={(e) => postClick(a)} key={a.id}>
-              <h3 className="center">~ {a.content}</h3>
+            <div className="center blog-style read" onClick={(e) => postClick(a)} key={a.id}>
+              <h3 className="inputs">~ {a.content} ~ by: {a.user.username}</h3>
               <p> {a.blog} </p>
               { addComment ?
               <div className="center">

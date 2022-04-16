@@ -8,10 +8,13 @@ import Art from './components/Art'
 import Music from './components/Music'
 import Blog from './components/Blog'
 import Video from './components/Video'
+import OnePost from './components/OnePost'
 
 function App() {
   
   const [posts, setPosts] = useState([])
+
+  const [onePost, setOnePost] = useState("")
 
   const [authUser, setAuthUser] = useState([])
 
@@ -47,7 +50,7 @@ function App() {
                 </Route>
 
                 <Route path="/feed">
-                  <Home posts={posts} authUser={authUser} setAuthUser={setAuthUser}/>
+                  <Home posts={posts} authUser={authUser} setAuthUser={setAuthUser} setOnePost={setOnePost}/>
                 </Route>
                 <Route path="/art">
                   <Art posts={posts} setPosts={setPosts}/>
@@ -60,6 +63,10 @@ function App() {
                 </Route>
                 <Route path="/video">
                   <Video posts={posts} setPosts={setPosts}/>
+                </Route>
+
+                <Route path="/posts/:id">
+                  <OnePost onePost={onePost}/>
                 </Route>
 
               </Switch>
