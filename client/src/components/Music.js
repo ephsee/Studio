@@ -36,12 +36,13 @@ function Music({posts}) {
     .then(r => r.json())
     .then(console.log)
     setAddComment(false)
+    setComment("")
 }
 
     const showPost = posts.filter( p => p.user.discipline_id === 3).map( a => {
         return(
             <div className="center" key={a.id}>
-              <h3 className="inputs" onClick={(e) => postClick(a)}>{a.content} ⨝ {a.user.username}</h3>
+              <h3 className="page-head" onClick={(e) => postClick(a)}>{a.content} ⨝ {a.user.username}</h3>
               <audio controls src={a.upload}></audio>
               { addComment ? 
               <div className="center">
@@ -63,7 +64,7 @@ function Music({posts}) {
         </NavLink>
         </div>
         
-        <h1 style={{ color: randomColor }} className="center headers">Music</h1>
+        <h1 style={{ color: randomColor }} className="center headers page-head">⫸ Music ⫷</h1>
 
         {/* { addComment ? 
           <div className="inputs">

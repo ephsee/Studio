@@ -106,7 +106,7 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
               </NavLink>
           </div>
           
-          <h1 style={{ color: randomColor1 }} className="center headers">User Page</h1>
+          <h1 style={{ color: randomColor1 }} className="center headers page-head">⫸ User Page ⫷</h1>
                     
                 <div className="center">
                   {/* <button onClick={updateForm}>update</button> */}

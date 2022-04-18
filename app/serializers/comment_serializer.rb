@@ -1,4 +1,4 @@
 class CommentSerializer < ActiveModel::Serializer
   attributes :id, :comment
-  has_one :post
+  belongs_to :post
 end

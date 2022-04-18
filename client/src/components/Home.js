@@ -1,8 +1,13 @@
 import {NavLink, useHistory} from 'react-router-dom'
+import {useEffect} from 'react'
 import Create from './Create'
 import Login from './Login'
 
-function Home({posts, authUser, setAuthUser, setOnePost}) {
+function Home({posts, authUser, setAuthUser, setOnePost, setPosts}) {
+
+  // const [postComm, setPostComm] = useState([])
+
+  console.log(authUser.username)
 
   let history = useHistory()
 
@@ -15,17 +20,20 @@ function Home({posts, authUser, setAuthUser, setOnePost}) {
     method: 'DELETE'})
     .then(r=>r.json())
     .then(setAuthUser)
+    // history.push('/')
   }
 
   function postOnClick(e){
-      console.log(e)
+      // console.log(e)
       setOnePost(e)
       history.push(`/posts/${e.id}`)
   }
 
-  // function loggedOut(e){
-  //   history.push('/')
-  // }
+  useEffect(()=>{
+    fetch('/posts')
+    .then(r => r.json())
+    .then(setPosts)
+  },[])
 
   const showPosts = posts.map(p => {
     return (
@@ -40,8 +48,8 @@ function Home({posts, authUser, setAuthUser, setOnePost}) {
   return (
 
     <div>
-
-      <div>
+      
+        <div>
 
           <div>
 
@@ -72,29 +80,29 @@ function Home({posts, authUser, setAuthUser, setOnePost}) {
             
             <div className="right">
 
-              <NavLink
+              {authUser.username===undefined ? null : <NavLink
                   className="links headers"
                   to="/profile">
                   PROFILE
-              </NavLink>
+              </NavLink>}              
 
-              <NavLink
+              {authUser.username===undefined ? null : <NavLink
                   className="links headers"
                   onClick={(e) => logOut(e)}
                   to="/">
                   LOGOUT
-              </NavLink>
+              </NavLink>}
 
             </div>
 
           </div>
 
-            <div className="login-create inputs center">
-                  <div>
-                    <Login setAuthUser={setAuthUser}/>
+            <div className={authUser.username === undefined ? "login-create inputs center" : "logged-in inputs center"} >
+                  <div className="profile-box">
                     <Create />
+                    <Login setAuthUser={setAuthUser}/>
                     <div>
-                      <h1 className="center headers" style={{color : randomColor}}>{authUser.username}</h1>
+                      <h1 className="center headers" style={{color : randomColor}}>⫸ {authUser.username} ⫷</h1>
                     </div>
                   </div>
             </div>

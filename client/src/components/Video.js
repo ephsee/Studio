@@ -38,15 +38,16 @@ function Video({posts, setPosts}) {
       .then(r => r.json())
       .then(console.log)
       setAddComment(false)
-      setPosts([...posts])
+      setComment("")
+      // setPosts([...posts])
   }    
 
       const showPost = posts.filter( p => p.user.discipline_id === 2).map( a => {
           return(
             
             <div className="center" key={a.id}>
-              <h3 onClick={(e) => postClick(a)}>{a.content} ⨝ {a.user.username}</h3>
-              <Player className="posts" width={480} controls src={a.upload} poster=""></Player>
+              <h3 className="page-head" onClick={(e) => postClick(a)}>{a.content} ⨝ {a.user.username}</h3>
+              <Player className="posts" width={480} volume={1}controls src={a.upload} poster=""></Player>
               { addComment ? <div className="center">
                 <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>
                 <button onClick={postComment}>post</button>
@@ -66,7 +67,7 @@ function Video({posts, setPosts}) {
           </NavLink>
         </div>
 
-            <h1 style={{ color: randomColor }} className="center headers">Video</h1>
+            <h1 style={{ color: randomColor }} className="center headers page-head">⫸ Video ⫷</h1>
 
             {/* { addComment ? <div className="inputs">
               <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>

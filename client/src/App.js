@@ -9,6 +9,7 @@ import Music from './components/Music'
 import Blog from './components/Blog'
 import Video from './components/Video'
 import OnePost from './components/OnePost'
+import PaintApp from './components/PaintApp'
 
 function App() {
   
@@ -53,7 +54,7 @@ function App() {
                 </Route>
 
                 <Route path="/feed">
-                  <Home posts={posts} authUser={authUser} setAuthUser={setAuthUser} setOnePost={setOnePost}/>
+                  <Home posts={posts} authUser={authUser} setAuthUser={setAuthUser} setOnePost={setOnePost} setPosts={setPosts}/>
                 </Route>
                 <Route path="/art">
                   <Art posts={posts} setPosts={setPosts}/>
@@ -66,6 +67,10 @@ function App() {
                 </Route>
                 <Route path="/video">
                   <Video posts={posts} setPosts={setPosts}/>
+                </Route>
+
+                <Route path="/paint">
+                  <PaintApp />
                 </Route>
 
                 <Route path="/posts/:id">

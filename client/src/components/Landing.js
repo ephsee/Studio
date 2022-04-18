@@ -14,7 +14,7 @@ function Landing() {
 
   return (
     <div>
-        <div className="inputs headers big-font">
+        <div className="center headers inputs big-font">
           <h1 style={{ color: randomColor9 }}>⫸</h1>
           <h1 style={{ color: randomColor1 }}>S</h1>
           <h1 style={{ color: randomColor2 }}>T</h1>
@@ -24,7 +24,7 @@ function Landing() {
           <h1 style={{ color: randomColor6 }}>O</h1>
           <h1 style={{ color: randomColor8 }}>⫷</h1>
         </div>
-        <h2 className="inputs headers" style={{ color: randomColor7 }}>WHERE CREATIVES CAN PROMOTE AND SUPPORT ARTISTS WORKS</h2>
+        <h2 className="center headers" style={{ color: randomColor7 }}>WHERE CREATIVES CAN PROMOTE AND SUPPORT ARTISTS WORKS</h2>
 
         <NavLink
             className="inputs links headers" 

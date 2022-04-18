@@ -1,23 +1,25 @@
-import {NavLink} from 'react-router-dom'
+import {NavLink, useHistory} from 'react-router-dom'
 import {useState} from 'react'
 
 
 function OnePost({onePost}) {
-    
-    console.log(onePost)
-    console.log(onePost.id)
-    console.log(onePost.content)
-    console.log(onePost.upload)
-    console.log(onePost.user.username)
-    // console.log(onePost.user.email)
-    console.log(onePost.discipline)
-    console.log(onePost.comments)
 
-    // const [addComment, setAddComment] = useState(false)
+    let history = useHistory()
+    
+    // console.log(onePost)
+    // console.log(onePost.id)
+    // console.log(onePost.content)
+    // console.log(onePost.upload)
+    // console.log(onePost.user.username)
+    // console.log(onePost.user.email)
+    // console.log(onePost.discipline)
+    // console.log(onePost.comments)
+
+    const [addComment, setAddComment] = useState(true)
     const [comment, setComment] = useState("")
     const [post_id , setPostId] = useState(onePost.id)
 
-    console.log(post_id)
+    // console.log(post_id)
   
   
     // function postClick(e){
@@ -44,10 +46,12 @@ function OnePost({onePost}) {
       })
       .then(r => r.json())
       .then(console.log)
-      setComment("")     
+      setComment("")
+      setAddComment(false)
+      history.push('/feed')
   }
 
-  const showComments = onePost.comments.map( c => <div><p>{c.comment}</p></div>)
+  const showComments = onePost.comments.map( c => <div key={c.id}><p>{c.comment}</p></div>)
 
 
 
@@ -79,10 +83,10 @@ function OnePost({onePost}) {
                     <p>user twitter: {onePost.user.link3}</p>
                     { onePost.comments.length === 0 ? null : <h2>others commented: {showComments}</h2> }
                 </div>
-              <div>
+              {addComment ? <div>
                 <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment" value={comment}></input>
                 <button onClick={postComment}>post</button>
-              </div>              
+              </div> : null}    
             </div>
 
 

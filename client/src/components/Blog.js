@@ -12,11 +12,11 @@ function Blog({posts, setPosts}) {
   // console.log(posts)
 
   function postClick(e){
-    setAddComment(true)
-    console.log(addComment)
+    setAddComment(!addComment)
+    // console.log(addComment)
     setPostId(e.id)
-    console.log(e.id)
-    console.log(e)
+    // console.log(e.id)
+    // console.log(e)
   }
 
   function postComment(e){
@@ -33,23 +33,23 @@ function Blog({posts, setPosts}) {
     })
     .then(r => r.json())
     .then(console.log)
-    // setPosts(posts)
     setAddComment(false)
+    setComment("")
 }
 
       const showPost = posts.filter( p => p.user.discipline_id === 4).map( a => {
           return(
-            <div> 
-              <h3 className="center">{a.content} ⨝ {a.user.username}</h3>
+            <div key={a.id}> 
+              <h3 className="center page-head">{a.content} ⨝ {a.user.username}</h3>
               <div className="center blog-style read" onClick={(e) => postClick(a)} key={a.id}>
               <p> {a.blog} </p>
+              </div>
               { addComment ?
               <div className="center">
                 <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>
                 <button onClick={postComment}>post</button>
               </div>
               : null }
-              </div>
             </div>)
         }).reverse()
 
@@ -64,7 +64,7 @@ function Blog({posts, setPosts}) {
           </NavLink>
           </div>
         <div>
-        <h1 style={{ color: randomColor }} className="center headers">Blog</h1>
+        <h1 style={{ color: randomColor }} className="center headers page-head">⫸ Blog ⫷</h1>
 
         {/* { addComment ?
           <div className="inputs">
