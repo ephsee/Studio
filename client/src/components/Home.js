@@ -17,18 +17,22 @@ function Home({posts, authUser, setAuthUser, setOnePost}) {
     .then(setAuthUser)
   }
 
-  function checkOnClick(e){
+  function postOnClick(e){
       console.log(e)
       setOnePost(e)
       history.push(`/posts/${e.id}`)
   }
 
+  // function loggedOut(e){
+  //   history.push('/')
+  // }
+
   const showPosts = posts.map(p => {
     return (
-      <div className="center profile-box" key={p.id} onClick={(e) => checkOnClick(p)}>
-        <p>{ p.user.username + " | " }</p>
-        <p>{" | " + p.content + " | " }</p>
-        <p style={{ color: 'grey'}}>{p.comments.map( c => " | " + c.comment )}</p>
+      <div className="center profile-box" key={p.id} onClick={(e) => postOnClick(p)}>
+        <p style={{ color: 'tan'}}>{ p.user.username }</p>
+        <p>{" ◂ " + p.content + " ▸ " }</p>
+        <p style={{ color: 'grey'}}>{p.comments.map( c => " ● " + c.comment )}</p>
         </div>
     )
   }).reverse()
@@ -36,6 +40,8 @@ function Home({posts, authUser, setAuthUser, setOnePost}) {
   return (
 
     <div>
+
+      <div>
 
           <div>
 
@@ -73,8 +79,8 @@ function Home({posts, authUser, setAuthUser, setOnePost}) {
               </NavLink>
 
               <NavLink
-                  onClick={(e) => logOut(e)}
                   className="links headers"
+                  onClick={(e) => logOut(e)}
                   to="/">
                   LOGOUT
               </NavLink>
@@ -83,7 +89,7 @@ function Home({posts, authUser, setAuthUser, setOnePost}) {
 
           </div>
 
-            <div className="right">
+            <div className="login-create inputs center">
                   <div>
                     <Login setAuthUser={setAuthUser}/>
                     <Create />
@@ -93,11 +99,12 @@ function Home({posts, authUser, setAuthUser, setOnePost}) {
                   </div>
             </div>
 
-
+        </div>
 
             <div className="grid">
               {showPosts}
             </div>
+          
     </div>
 
   )

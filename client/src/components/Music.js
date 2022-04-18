@@ -41,7 +41,7 @@ function Music({posts}) {
     const showPost = posts.filter( p => p.user.discipline_id === 3).map( a => {
         return(
             <div className="center" key={a.id}>
-              <h3 className="inputs" onClick={(e) => postClick(a)}>{a.content} ~ by: {a.user.username}</h3>
+              <h3 className="inputs" onClick={(e) => postClick(a)}>{a.content} ⨝ {a.user.username}</h3>
               <audio controls src={a.upload}></audio>
               { addComment ? 
               <div className="center">

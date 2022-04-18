@@ -45,7 +45,7 @@ function Video({posts, setPosts}) {
           return(
             
             <div className="center" key={a.id}>
-              <h3 className="inputs" onClick={(e) => postClick(a)}  >{a.content} ~ by: {a.user.username}</h3>
+              <h3 onClick={(e) => postClick(a)}>{a.content} ⨝ {a.user.username}</h3>
               <Player className="posts" width={480} controls src={a.upload} poster=""></Player>
               { addComment ? <div className="center">
                 <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>

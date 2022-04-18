@@ -6,5 +6,5 @@ class UserSerializer < ActiveModel::Serializer
   # def since
   #   object.created_at.strftime("%B #{@date.day.ordinalize}, %Y")
   # end
-    
+
 end

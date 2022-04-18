@@ -9,6 +9,7 @@ function OnePost({onePost}) {
     console.log(onePost.content)
     console.log(onePost.upload)
     console.log(onePost.user.username)
+    // console.log(onePost.user.email)
     console.log(onePost.discipline)
     console.log(onePost.comments)
 
@@ -43,7 +44,7 @@ function OnePost({onePost}) {
       })
       .then(r => r.json())
       .then(console.log)
-      setComment("")      
+      setComment("")     
   }
 
   const showComments = onePost.comments.map( c => <div><p>{c.comment}</p></div>)
@@ -56,18 +57,18 @@ function OnePost({onePost}) {
             <div>
                 
                 <NavLink
-                    className="links"
+                    className="links headers"
                     to="/feed">
                     Studio
                 </NavLink>
 
             </div>
 
-        <div>
+        <div className="inputs">
 
 
-            <div>
-                <div className="center">
+            <div className="center">
+                <div className="profile-box">
                     <p className="headers">username: {onePost.user.username}</p>
                     <p>page: {onePost.discipline}</p>
                     <p>description: {onePost.content}</p>
@@ -78,12 +79,12 @@ function OnePost({onePost}) {
                     <p>user twitter: {onePost.user.link3}</p>
                     { onePost.comments.length === 0 ? null : <h2>others commented: {showComments}</h2> }
                 </div>
-            </div>
-
-              <div className="center">
+              <div>
                 <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment" value={comment}></input>
                 <button onClick={postComment}>post</button>
               </div>              
+            </div>
+
 
         </div>
     </div>

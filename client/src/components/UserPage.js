@@ -53,7 +53,7 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
     
     const updateData = {
     full_name: full_name,
-    eamil: email,
+    email: email,
     bio: bio,
     pic: pic,
     link1: link1,
@@ -91,7 +91,7 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
         return (
         <div key={up.id}>
           <p>{up.content}</p>
-          <button className="delete" onClick={(e) => deletePost(up.id)}>x</button>
+          <button className="delete" onClick={(e) => deletePost(up.id)}>⨂</button>
         </div>
         )
   }).reverse()
@@ -105,10 +105,10 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
                 Studio
               </NavLink>
           </div>
-
-          <h1 style={{ color: randomColor1 }} className="inputs headers">User Page</h1>
-
-                <div className="inputs">
+          
+          <h1 style={{ color: randomColor1 }} className="center headers">User Page</h1>
+                    
+                <div className="center">
                   {/* <button onClick={updateForm}>update</button> */}
                     {showUpdate ? <form onSubmit={(e) => submitUpdate(e)}>
                       <p className="center">update your profile information</p>
@@ -126,18 +126,18 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
           <div className="inputs">
 
                 <div className="profile-box center">
-                    <img onClick={updateForm} className="profile-pic" width="300px" src={authUser.pic}/>
+                    <img onClick={updateForm} alt="" className="profile-pic" width="300px" src={authUser.pic}/>
                     <h1 className="headers" style={{ color: randomColor2 }}>{authUser.username}</h1>
-                    <h2 style={{ color: 'grey'}}>{authUser.full_name}</h2>
+                    <h2>{authUser.full_name}</h2>
                     <p style={{ color: 'grey'}}>{authUser.bio}</p>
-                    <p>{count} posts to date</p>
                     {/* <p>member since: {authUser.created_at}</p> */}
                     <p style={{ color: 'grey'}}>{authUser.email}</p> 
-                    <p style={{ color: 'grey'}}>LinkedIn: {authUser.link1}</p>
-                    <p style={{ color: 'grey'}}>Instagram: {authUser.link2}</p>
-                    <p style={{ color: 'grey'}}>Twitter: {authUser.link3}</p>
+                    <p style={{ color: 'grey'}}>{authUser.link1}</p>
+                    <p style={{ color: 'grey'}}>{authUser.link2}</p>
+                    <p style={{ color: 'grey'}}>{authUser.link3}</p>
+                    <p>{count} posts to date</p>
                 </div>
-                  
+
                   <Post authUser={authUser} setPosts={setPosts} posts={posts}/>
 
                   <div className="profile-box center">

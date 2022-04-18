@@ -38,7 +38,7 @@ function Post({authUser, posts, setPosts}) {
             body: JSON.stringify(newBlog)
             })
             .then(r => r.json())
-            .then(data => setPosts([data, ...posts].reverse()))
+            .then(data => setPosts([...posts, data]))
             setHeading("")
             setBlog("")
         }
@@ -56,7 +56,7 @@ function Post({authUser, posts, setPosts}) {
             body: formData
             })
             .then(r => r.json())
-            .then(data => setPosts([data, ...posts].reverse()))
+            .then(data => setPosts([...posts, data]))
             setContent("")
             setText("")
         }

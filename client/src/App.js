@@ -13,6 +13,7 @@ import OnePost from './components/OnePost'
 function App() {
   
   const [posts, setPosts] = useState([])
+  // const [comments, setComments] = useState([])
 
   const [onePost, setOnePost] = useState("")
 
@@ -26,9 +27,15 @@ function App() {
 
     useEffect(()=>{
       fetch('/posts')
-      .then(r=>r.json())
+      .then(r => r.json())
       .then(setPosts)
   }, [])
+
+  // useEffect(()=>{
+  //   fetch("/comments")
+  //   .then(r => r.json())
+  //   .then(setComments)
+  // }, [])
 
   return (
 
@@ -40,10 +47,6 @@ function App() {
             <main>
 
               <Switch>
-
-                <Route exact path="/">
-                  <Landing/>
-                </Route>
 
                 <Route path="/profile">
                   <UserPage authUser={authUser} setAuthUser={setAuthUser} posts={posts} setPosts={setPosts}/>
@@ -67,6 +70,10 @@ function App() {
 
                 <Route path="/posts/:id">
                   <OnePost onePost={onePost}/>
+                </Route>
+
+                <Route exact path="/">
+                  <Landing/>
                 </Route>
 
               </Switch>
