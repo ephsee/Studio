@@ -2,7 +2,7 @@ import {useState} from 'react'
 
 function Login({setAuthUser}) {
 
-    let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+    // let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
 
     const [username, setUsername] = useState("")   
     const [password, setPassword] = useState("")
@@ -40,9 +40,9 @@ function Login({setAuthUser}) {
 
     <div>◂ Login ▸  
         <form>
-            <input onChange={handleUsername} type="text" name="username" placeholder="username" value={username}></input>
-            <input onChange={handlePassword}type="password" name="password" placeholder="password" value={password}></input>
-            <input onClick={submitLogin} type="submit" name="Submit"></input>
+            <input className="center" onChange={handleUsername} type="text" name="username" placeholder="username" value={username}></input>
+            <input className="center" onChange={handlePassword}type="password" name="password" placeholder="password" value={password}></input>
+            <input className="center" onClick={submitLogin} type="submit" name="Submit"></input>
         </form>
     </div>
   )

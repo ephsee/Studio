@@ -2,7 +2,7 @@ import {useState} from 'react'
 
 function Create({login}) {
 
-    let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+    // let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -50,9 +50,9 @@ function Create({login}) {
         <div>◂ Create Account ▸
 
             <form>
-                <input onChange={handleUsername} type="text" name="username" placeholder="username" value={username}></input>
-                <input onChange={handlePassword}type="password" name="password" placeholder="password" value={password}></input>
-                <select onChange={handleDiscipline}>
+                <input className="center" onChange={handleUsername} type="text" name="username" placeholder="username" value={username}></input>
+                <input className="center" onChange={handlePassword}type="password" name="password" placeholder="password" value={password}></input>
+                <select className="center" onChange={handleDiscipline}>
                     <option value="">select discipline</option>
                     <option value="1">Art</option>
                     <option value="2">Video</option>

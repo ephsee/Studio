@@ -7,7 +7,7 @@ function Home({posts, authUser, setAuthUser, setOnePost, setPosts}) {
 
   // const [postComm, setPostComm] = useState([])
 
-  console.log(authUser.username)
+  // console.log(authUser.username)
 
   let history = useHistory()
 
@@ -99,11 +99,11 @@ function Home({posts, authUser, setAuthUser, setOnePost, setPosts}) {
 
             <div className={authUser.username === undefined ? "login-create inputs center" : "logged-in inputs center"} >
                   <div className="profile-box">
+                    <div>
+                      <h1 className="center headers" style={{color : randomColor}}>⫸ {authUser.username === undefined ? "Studio" : authUser.username} ⫷</h1>
+                    </div>
                     <Create />
                     <Login setAuthUser={setAuthUser}/>
-                    <div>
-                      <h1 className="center headers" style={{color : randomColor}}>⫸ {authUser.username} ⫷</h1>
-                    </div>
                   </div>
             </div>
 

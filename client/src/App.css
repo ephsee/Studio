@@ -1,9 +1,13 @@
 @import '~video-react/dist/video-react.css';
 
+/* client/src/assets/glitch-gcd4024466_1920.jpg */
+
 body {
     color: rgb(199, 189, 189);
     /* background-color: rgb(31, 32, 34); */
     background-image: url('assets/glitch-gd5bca8981_1920.jpg');
+    object-fit: fill;
+    /* background-image: url('assets/glitch-gcd4024466_1920.jpg'); */
     filter: grayscale(30%);
     font-family: 'Inconsolata', monospace;
 }
@@ -41,29 +45,56 @@ input{
     color: white;
     /* font-family: "Helvetica Neue",Helvetica,Arial; */
     border-radius: 5px;
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-family: 'Inconsolata', monospace;
 }
 
 input[type="file"] {
     color: red;
+    font-family: 'Inconsolata', monospace;
 }
 
 select{
-    background-color: rgb(0, 0, 0);
-    color: white;
-    border-radius: 5px
-    /* font-family: "Helvetica Neue",Helvetica,Arial; */
-
+    background-color: black;
+    color: rgb(133, 133, 133);
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    cursor: inherit;
+    line-height: inherit;
+    font-family: 'Inconsolata', monospace;
+    font-size: 16px;
 }
+
 textarea{
     background-color: rgb(0, 0, 0);
     color: white;
-    /* font-family: "Helvetica Neue",Helvetica,Arial; */
+    height: 300px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid rgb(255, 255, 255, 0.6);
+    border-radius: 4px;
+    font-size: 16px;
+    resize: none;
+    font-family: 'Inconsolata', monospace;
 }
 
-button{
+.a-button{
     background-color: rgb(0, 0, 0);
     color: white;
-    /* font-family: "Helvetica Neue"; */
+    border-radius: 5px;
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-family: 'Inconsolata', monospace;
 }
 
 .studio{
@@ -72,15 +103,10 @@ button{
     border-radius: 10px;
 }
 
-/* .studio:hover{
-    color: white
-} */
-
 .posts{
     border: 5px solid rgb(0, 0, 0, 0.7);
     border-radius: 13px;
     background-color: rgb(0, 0, 0, 0.8);
-    /* filter: drop-shadow(0 -6mm 4mm rgb(0, 0, 0)); */
 }
 
 .grid{
@@ -111,10 +137,6 @@ button{
     justify-content: space-around;
     grid-template-columns: 33.3% 33.3% 33.3%; 
 }
-
-/* .image:hover{
-    transform: scale(1.1);
-} */
 
 .profile-pic{
     border: 5px solid black;
@@ -153,8 +175,10 @@ body::-webkit-scrollbar {
 }
 body::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color:black
 }
 body::-webkit-scrollbar-thumb {
+    color: black;
     background-color: rgb(59, 81, 110);
     outline: 1px solid rgb(13, 33, 63);
 }
@@ -182,43 +206,6 @@ input[type="file"]{
     border: 3px solid rgb(119, 114, 114, 0.5);
     border-radius: 10px;
 }
-
-
-/* .blog-card{
-    background-color: rgb(161, 158, 158);
-    color: black;
-    width: 700px;
-    border: 2px solid black;
-    border-radius: 10px; 
-} */
-
-/* Flashing */
-
-/* .hover13 figure:hover img {
-	opacity: 1;
-	-webkit-animation: flash 1.5s;
-	animation: flash 1.5s;
-}
-@-webkit-keyframes flash {
-	0% {
-		opacity: .4;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-@keyframes flash {
-	0% {
-		opacity: .4;
-	}
-	100% {
-		opacity: 1;
-	}
-} */
-
-/* 
-@import url(
-'https://fonts.googleapis.com/css2?family=Lobster&display=swap'); */
   
 .App {
   width: 100%;
@@ -230,12 +217,6 @@ input[type="file"]{
   background-image: linear-gradient(
     120deg, #000000 0%, #000000 100%);
 }
-  
-/* h1 {
-  font-family: 'Lobster', cursive;
-  font-size: 50px;
-  color: #282855;
-} */
   
 .draw-area {
   width: 1280px;

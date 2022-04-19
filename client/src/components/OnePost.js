@@ -17,7 +17,7 @@ function OnePost({onePost}) {
 
     const [addComment, setAddComment] = useState(true)
     const [comment, setComment] = useState("")
-    const [post_id , setPostId] = useState(onePost.id)
+    const [post_id] = useState(onePost.id)
 
     // console.log(post_id)
   
@@ -84,8 +84,8 @@ function OnePost({onePost}) {
                     { onePost.comments.length === 0 ? null : <h2>others commented: {showComments}</h2> }
                 </div>
               {addComment ? <div>
-                <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment" value={comment}></input>
-                <button onClick={postComment}>post</button>
+                <input className="center" onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment" value={comment}></input>
+                <button className="a-button" onClick={postComment}>post</button>
               </div> : null}    
             </div>
 

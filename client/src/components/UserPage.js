@@ -134,7 +134,7 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
                     <a style={{ color: 'grey'}} href= {"mailto:" + authUser.email}>{authUser.email}</a> 
                     <p style={{ color: 'grey'}}>{authUser.link1}</p>
                     <p style={{ color: 'grey'}}>{authUser.link2}</p>
-                    <a style={{ color: 'grey'}}>{authUser.link3}</a>
+                    <p style={{ color: 'grey'}}>{authUser.link3}</p>
                     <p>{count} posts to date</p>
                 </div>
 
