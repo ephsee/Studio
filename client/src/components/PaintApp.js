@@ -87,7 +87,7 @@ const Menu = ({ setLineColor, setLineWidth,
     
     return (
       <div className="App">
-        <h1>Paint App</h1>
+        <h1>Doodle Page</h1>
         <div className="draw-area">
           <Menu
             setLineColor={setLineColor}

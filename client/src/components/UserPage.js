@@ -19,31 +19,31 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
 
   function handleFullName(e){
     setFull_name(e.target.value)
-    console.log(full_name)
+    // console.log(full_name)
   }
   function handleEmail(e){
     setEmail(e.target.value)
-    console.log(email)
+    // console.log(email)
   }
   function handleBio(e){
     setBio(e.target.value)
-    console.log(bio)
+    // console.log(bio)
   }
   function handlePic(e){
     setPic(e.target.value)
-    console.log(pic)
+    // console.log(pic)
   }
   function handleLink1(e){
     setLink1(e.target.value)
-    console.log(link1)
+    // console.log(link1)
   }
   function handleLink2(e){
     setLink2(e.target.value)
-    console.log(link2)
+    // console.log(link2)
   }
   function handleLink3(e){
     setLink3(e.target.value)
-    console.log(link3)
+    // console.log(link3)
   }
 
   const userId = authUser.id
@@ -108,9 +108,9 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
           
           <h1 style={{ color: randomColor1 }} className="center headers page-head">⫸ User Page ⫷</h1>
                     
-                <div className="center">
+                {/* <div className="center posts"> */}
                   {/* <button onClick={updateForm}>update</button> */}
-                    {showUpdate ? <form onSubmit={(e) => submitUpdate(e)}>
+                    {showUpdate ? <div className="center posts"> <form onSubmit={(e) => submitUpdate(e)}>
                       <p className="center">update your profile information</p>
                       <input onChange={handleFullName} type="text" name="full_name" placeholder="full name"></input>
                       <input onChange={handleEmail} type="text" name="email" placeholder="email"></input>
@@ -120,21 +120,21 @@ function UserPage({authUser, setAuthUser, posts, setPosts}) {
                       <input onChange={handleLink2} type="text" name="link2" placeholder="instagram"></input>
                       <input onChange={handleLink3} type="text" name="link3" placeholder="twitter"></input>
                       <input type="submit" name="submit"></input>
-                    </form> : null}
-                </div>
+                    </form> </div> : null}
+                {/* </div> */}
 
           <div className="inputs">
 
                 <div className="profile-box center">
                     <img onClick={updateForm} alt="" className="profile-pic" width="300px" src={authUser.pic}/>
-                    <h1 className="headers" style={{ color: randomColor2 }}>{authUser.username}</h1>
+                    <h1 className="headers" style={{ color: randomColor2 }}>⫸ {authUser.username} ⫷</h1>
                     <h2>{authUser.full_name}</h2>
                     <p style={{ color: 'grey'}}>{authUser.bio}</p>
                     {/* <p>member since: {authUser.created_at}</p> */}
-                    <p style={{ color: 'grey'}}>{authUser.email}</p> 
+                    <a style={{ color: 'grey'}} href= {"mailto:" + authUser.email}>{authUser.email}</a> 
                     <p style={{ color: 'grey'}}>{authUser.link1}</p>
                     <p style={{ color: 'grey'}}>{authUser.link2}</p>
-                    <p style={{ color: 'grey'}}>{authUser.link3}</p>
+                    <a style={{ color: 'grey'}}>{authUser.link3}</a>
                     <p>{count} posts to date</p>
                 </div>
 

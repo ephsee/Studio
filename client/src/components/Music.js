@@ -43,7 +43,7 @@ function Music({posts}) {
         return(
             <div className="center" key={a.id}>
               <h3 className="page-head" onClick={(e) => postClick(a)}>{a.content} ⨝ {a.user.username}</h3>
-              <audio controls src={a.upload}></audio>
+              <audio className="posts" controls src={a.upload}></audio>
               { addComment ? 
               <div className="center">
                 <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>

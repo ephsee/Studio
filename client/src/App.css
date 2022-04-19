@@ -1,8 +1,10 @@
 @import '~video-react/dist/video-react.css';
 
 body {
-    color: rgb(182, 155, 154);
-    background-color: rgb(31, 32, 34);
+    color: rgb(199, 189, 189);
+    /* background-color: rgb(31, 32, 34); */
+    background-image: url('assets/glitch-gd5bca8981_1920.jpg');
+    filter: grayscale(30%);
     font-family: 'Inconsolata', monospace;
 }
 .headers{
@@ -22,15 +24,15 @@ a:link {
 }
 
 a:hover {
-    background-color:white;
+    background-color:rgba(255, 255, 255, 0.7);
     color:black;
 }
 
 .links{
     padding: 10px;
-    border: 2px solid rgb(68, 68, 68);
+    border: 2px solid rgb(68, 68, 68,0.7);
     border-radius: 25% 10%;
-    background-color: black;
+    background-color: rgb(0, 0, 0, 0.8);
     color: white;
 }
 
@@ -40,9 +42,15 @@ input{
     /* font-family: "Helvetica Neue",Helvetica,Arial; */
     border-radius: 5px;
 }
+
+input[type="file"] {
+    color: red;
+}
+
 select{
     background-color: rgb(0, 0, 0);
     color: white;
+    border-radius: 5px
     /* font-family: "Helvetica Neue",Helvetica,Arial; */
 
 }
@@ -58,9 +66,20 @@ button{
     /* font-family: "Helvetica Neue"; */
 }
 
-.posts{
-    border: 2px solid black;
+.studio{
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    background-color:black;
     border-radius: 10px;
+}
+
+/* .studio:hover{
+    color: white
+} */
+
+.posts{
+    border: 5px solid rgb(0, 0, 0, 0.7);
+    border-radius: 13px;
+    background-color: rgb(0, 0, 0, 0.8);
     /* filter: drop-shadow(0 -6mm 4mm rgb(0, 0, 0)); */
 }
 
@@ -93,9 +112,9 @@ button{
     grid-template-columns: 33.3% 33.3% 33.3%; 
 }
 
-.image:hover{
+/* .image:hover{
     transform: scale(1.1);
-}
+} */
 
 .profile-pic{
     border: 5px solid black;
@@ -103,14 +122,14 @@ button{
 }
 .profile-box{
     width: 700px;
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: rgb(0, 0, 0, 0.7);
     border: 3px solid rgb(119, 114, 114, 0.5);
     border-radius: 10px;
 }
 
 .blog-style{
-    background-color: rgb(41, 40, 38);
-    color:rgb(131, 116, 109);
+    background-color: rgb(163, 155, 151);
+    color:rgb(0, 0, 0);
     border: 2px solid rgb(24, 11, 5);
     border-radius: 10px;
     padding: 20px;
@@ -159,7 +178,7 @@ input[type="file"]{
 }
 
 .page-head{
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: rgb(0, 0, 0, 0.7);
     border: 3px solid rgb(119, 114, 114, 0.5);
     border-radius: 10px;
 }
