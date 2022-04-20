@@ -69,8 +69,8 @@ function Post({authUser, posts, setPosts}) {
 
             { authUser.discipline_id === 4 ? <div>
                 <form>
-                    <input className="center" onChange={handleHeading} type="text" name="heading" placeholder="heading"></input><br></br>
-                    <textarea className="center" onChange={handleBlog} type="text" name="blog" placeholder="blog content" rows="20" cols="50"></textarea><br></br>
+                    <input className="center" onChange={handleHeading} type="text" name="heading" placeholder="heading" value={heading}></input><br></br>
+                    <textarea className="center" onChange={handleBlog} type="text" name="blog" placeholder="blog content" value={blog} rows="20" cols="50"></textarea><br></br>
                     <input className="center" onClick={(e) => submitBlog(e)} type="submit" name="Submit"></input>
                 </form>
             </div> :
@@ -78,7 +78,7 @@ function Post({authUser, posts, setPosts}) {
             <div>
                 <form>
                     <input className="center" onChange={handleContent} type="file" accept="image/*" name="file"></input><br></br>
-                    <input className="center" onChange={handleText} type="text" name="content" placeholder="upload details"></input><br></br>
+                    <input className="center" onChange={handleText} type="text" name="content" placeholder="upload details" value={text}></input><br></br>
                     <input className="center" onClick={(e) => handleSubmit(e)} type="submit" name="Submit"></input>
                 </form>
             </div> }

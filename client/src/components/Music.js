@@ -47,7 +47,7 @@ function Music({posts}) {
               { addComment ? 
               <div className="center">
                 <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>
-                <button onClick={postComment}>post</button>
+                <button className="a-button" onClick={postComment}>post</button>
               </div>
               : null }
             </div>

@@ -50,7 +50,7 @@ function Video({posts, setPosts}) {
               <Player className="posts" width={480} volume={1}controls src={a.upload} poster=""></Player>
               { addComment ? <div className="center">
                 <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>
-                <button onClick={postComment}>post</button>
+                <button className="a-button" onClick={postComment}>post</button>
                 </div> : null }
             </div>
           )

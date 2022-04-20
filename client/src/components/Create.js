@@ -53,7 +53,7 @@ function Create({login}) {
                 <input className="center" onChange={handleUsername} type="text" name="username" placeholder="username" value={username}></input>
                 <input className="center" onChange={handlePassword}type="password" name="password" placeholder="password" value={password}></input>
                 <select className="center" onChange={handleDiscipline}>
-                    <option value="">select discipline</option>
+                    <option value="0">select discipline</option>
                     <option value="1">Art</option>
                     <option value="2">Video</option>
                     <option value="3">Music</option>

@@ -41,7 +41,7 @@ function Art({posts}) {
                   <img onClick={(e) => postClick(a)} className="posts image" width="400px" src={a.upload} alt={a.id}/>
                   { addComment ? <div className="center">
                     <input onChange={(e) => setComment(e.target.value)} type="text" placeholder="add comment"></input>
-                    <button onClick={postComment}>post</button>
+                    <button className="a-button" onClick={postComment}>post</button>
                     </div> : null }
                 </div>
             )
